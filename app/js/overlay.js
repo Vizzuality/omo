@@ -25,7 +25,8 @@ define([], function () {
 
             $(this.$el.find('.gallery')).gallery();
         },
-        close: function () {
+        close: function (e) {
+            e.preventDefault()
             this.$el.fadeOut('fast');
             this.content.empty();
         }
