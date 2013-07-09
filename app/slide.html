@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Omo</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <link rel="icon" type="image/x-icon" href="favicon.ico">
+        
+        <link rel="stylesheet" href="vendor/cartodb.js/themes/css/cartodb.css">
+        <link rel="stylesheet" href="lib/reveal.js/css/reveal.css">
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body>
+        <div class="cartodb-visualization" id="map"></div>
+
+        <div class="reveal">
+            <div class="slides">
+                
+                <section data-background="img/temp/temp1.jpg">
+                    <article class="reveal-center-article">
+                        <div class="reveal-article-content">
+                            <h2>A home to 200,000 agro-pastoralists is planned to be turned into an industrial powerhouse.</h2>
+                            <div class="columns">
+                                <p>Ethiopia’s Lower Omo Valley, one of Africa’s most unique places and home to 200,000 agro-pastoralists is planned to be turned into an industrial powerhouse. The early stages of the development have resulted in a loss of land and livelihoods for several thousand of EthiopiaÕs most vulnerable citizens and the future of 500,000 agro-pastoralists in Ethiopia and Kenya hang in the balance...</p>
+                            </div>
+                            <footer class="clearfix">
+                                <a href="#article1" data-overlay="true" class="reveal-btn">Live the story</a>
+                            </footer>
+                        </div>                        
+                    </article>
+                </section>
+                
+                <section data-background="img/temp/temp2.jpg">
+                    <article class="reveal-center-article">
+                        <div class="reveal-article-content">
+                            <h2>Ethiopia produces 300,000 tons of sugar a year.</h2>
+                            <div class="columns">
+                                <p>With new planations in the Omo valley, the country aims to increase annual production to more than 2.25 million tons. This increase will be used to offset domestic sugar supply shortfalls, for ethanol production, and for export to sugar hungry markets.</p>
+                                <p>Exports of sugar and various biofuels have become very lucrative under the EUÕs Everything but Arms treaty (EBA) which gives preferential trading terms to LDC nations such as Ethiopia.</p>
+                            </div>
+                            <footer class="clearfix">
+                                <a href="#gallery1" data-overlay="true" class="reveal-btn">Live the story</a>
+                            </footer>
+                        </div>                        
+                    </article>
+                </section>
+
+                <section data-background="url(img/assets/bg-article-left.png) repeat-y center" data-state="map">
+                    <article class="reveal-left-article">
+                        <div class="reveal-article-content">
+                            <h2>Lower Omo Valley</h2>
+                            <div class="colums">
+                                <p>The Lower Omo Valley in southern Ethiopia is one of the most culturally and biologically diverse places on Earth. Approximately 200,000 indigenous people live in the Lower Omo Valley.</p>
+
+								<p>The Omo River flows south into Kenya’s Lake Turkana. <a href="#">Lake Turkana</a> is the world’s largest desert lake and around 300,000 people live along its shores. The Omo and Turkana watershed is home to three national parks, and two World Heritage sites.</p>
+
+								<p>The Lower Omo Valley is also one of the most remote and underdeveloped regions of Ethiopia. But that is set to change</p>
+                            </div>
+                            <footer class="clearfix">
+                                <a href="#quote1" data-overlay="true" class="reveal-btn">Live the story</a>
+                            </footer>
+                        </div>                       
+                    </article>
+                </section>
+
+            </div>
+        </div>
+
+        <!-- Gallery, Article or Blockquote -->
+        <div id="overlay" class="overlay">
+            <a id="closeOverlayBtn" class="overlay-close-btn" href="#">Close</a>
+            <div id="contentOverlay" class="overlay-content"></div>
+        </div>
+
+        <div class="hidden" id="article1">
+            <div class="overlay-wrap">
+                <article class="overlay-article">
+                    <div class="columns">
+                        <p>There is no agreed legal definition of ‘indigenous people’. However the UN’s Permanent Forum on Indigenous Issues has approved the following description, stating that the UN ‘system’ has developed a modern understanding of this term [indigenous people] based on the following:</p>
+                        <ul>
+                            <li>Self- identification as indigenous peoples at the individual level and accepted by the community as their member.</li>
+                            <li>Historical continuity with pre-colonial and/or pre-settler societies </li>
+                            <li>Strong link to territories and surrounding natural resources </li>
+                            <li>Distinct social, economic or political systems.</li>
+                            <li>Distinct language, culture and beliefs Form non-dominant groups of society</li>
+                            <li>Resolve to maintain and reproduce their ancestral environments and systems as distinctive peoples and communities. </li>
+                        </ul>
+                        <p>According to the UN the most fruitful approach is to identify, rather than define indigenous peoples. This is based on the fundamental criterion of self-identification as underlined in a number of human rights documents. UN Permanent Forum on Indigenous Issues, Factsheet: Who are Indigenous Peoples (Accessed 25 March 2012). The eight groups in the Lower Omo Valley fit this definition and are considered indigenous peoples.</p>
+                    </div> 
+                </article>
+            </div> 
+        </div>
+
+        <div class="hidden" id="gallery1">
+            <div class="gallery">
+                <div class="gallery-wrap">
+                    <a href="http://www.youtube.com/embed/NM7rPtWTWUY" class="gallery-panel"><img src="img/temp/gallery-thumb.jpg" height="435" width="652"></a>
+                    <a href="http://www.youtube.com/embed/irajDZAuOOs" class="gallery-panel"><img src="img/temp/gallery-thumb.jpg" height="435" width="652"></a>
+                    <a href="http://www.youtube.com/embed/zTCppicXZEo" class="gallery-panel"><img src="img/temp/gallery-thumb.jpg" height="435" width="652"></a>
+                </div>
+                <a href="#prev" class="gallery-prev">prev</a>
+                <a href="#next" class="gallery-next">next</a>
+                <div class="gallery-viewer" id="galleryViewer"></div>
+            </div>
+        </div>
+
+        <div class="hidden" id="quote1">
+            <div class="overlay-wrap">
+                <blockquote class="overlay-quote">
+                    <p>“In the coming five years there will be a very big irrigation project and related agricultural development in this zone. I promise you that, even though this area is known as backward in terms of civilization, it will become an example of rapid development.”</p>
+                    <footer>
+                        <cite>Ethiopian Prime Minister Meles Zenawi - <a href="#">Read more</a></cite>
+                    </footer>
+                </blockquote>
+            </div>
+        </div>
+        
+        <script src="vendor/cartodb.js/dist/cartodb.js"></script>
+        <script src="vendor/Backbone-Mediator/backbone-mediator.js"></script>
+        <script src="vendor/requirejs/require.js" data-main="js/main"></script>
+    </body>
+</html>

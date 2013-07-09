@@ -1,0 +1,8 @@
+{
+  "name": "cartodb.js",
+  "version": "2.0.28",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/CartoDB/cartodb.js.git"
+  }
+}

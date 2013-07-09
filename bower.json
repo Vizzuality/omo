@@ -1,0 +1,17 @@
+{
+  "name": "i3dat",
+  "version": "1.0.0",
+  "main": "app/js/main.js",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "app/vendor"
+  ],
+  "dependencies": {
+    "requirejs": "~2.1.6",
+    "cartodb.js": "~2.0.28",
+    "jquery": "~2.0.2",
+    "normalize-css": "~2.1.2",
+    "Backbone-Mediator": "latest"
+  }
+}
