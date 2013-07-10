@@ -67,8 +67,10 @@ define(['jquery', 'reveal'], function ($, Reveal) {
         checkIframe: function () {
             if (this.iframe) {
                 this.logo.show();
+                this.$el.addClass('iframe');
             } else {
                 this.logo.hide();
+                this.$el.removeClass('iframe');
             }
         }
     });

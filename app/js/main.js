@@ -1,10 +1,11 @@
 /*global cartodb, require*/
 
-var dependencies = ['jquery', 'gallery', 'reveal', 'MapView', 'RevealView', 'OverlayView', 'PreloadView'];
+var dependencies = ['jquery', 'gallery', 'reveal', 'MapView', 'RevealView', 'OverlayView', 'PreloadView', 'domReady'];
 
 require.config({
     baseUrl: '',
     paths: {
+        domReady: 'vendor/requirejs-domready/domReady',
         jquery: 'vendor/jquery/jquery',
         reveal: 'lib/reveal.js/js/reveal',
         gallery: 'lib/jquery/gallery',
@@ -33,11 +34,14 @@ require.config({
         },
         PreloadView: {
             exports: 'PreloadView'
+        },
+        domReady: {
+            exports: 'domReady'
         }
     }
 });
 
-require(dependencies, function ($, gallery, Reveal, MapView, RevealView, OverlayView, PreloadView) {
+require(dependencies, function ($, gallery, Reveal, MapView, RevealView, OverlayView, PreloadView, domReady) {
     'use strict';
 
     var app = {};
@@ -51,7 +55,5 @@ require(dependencies, function ($, gallery, Reveal, MapView, RevealView, Overlay
 
     }
 
-    $(function() {
-        initialize();
-    });
+    domReady(initialize);
 });
