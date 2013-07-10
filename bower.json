@@ -9,7 +9,6 @@
   ],
   "dependencies": {
     "requirejs": "~2.1.6",
-    "cartodb.js": "~2.0.28",
     "jquery": "~2.0.2",
     "normalize-css": "~2.1.2",
     "Backbone-Mediator": "latest"

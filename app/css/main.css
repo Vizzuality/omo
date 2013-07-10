@@ -51,6 +51,15 @@ ul {padding-left: 20px;}
 }
 .columns p {margin: 0 0 1em 0;}
 
+/* Logo */
+.logo-omo {
+    display: none;
+    left: 50%;
+    margin: 0 0 0 -45px;
+    position: absolute;
+    z-index: 1002;
+}
+
 
 /* Reveal */
 .reveal {position: relative; z-index: 1001;}
@@ -76,14 +85,19 @@ ul {padding-left: 20px;}
 
 .reveal .reveal-center-article {
     background: url(../img/assets/bg-article.png) no-repeat center center;
-    display: table-cell;
     height: 525px;
-    min-width: 900px;
     position: relative;
     vertical-align: middle;
     z-index: 1;
 }
-.reveal .reveal-center-article .reveal-article-content {padding: 0 80px;}
+.reveal .reveal-center-article .reveal-article-content {
+    display: table;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 80px;
+    width: 660px;
+}
+.reveal .reveal-article-cell {display: table-cell; vertical-align: middle;}
 .reveal .reveal-left-article .reveal-article-content {max-width: 45%;}
 .reveal .reveal-article-content a {color: #fff;}
 
@@ -119,6 +133,7 @@ ul {padding-left: 20px;}
     position: absolute;
     top: 0;
     width: 100%;
+    opacity: 1;
 }
 
 
@@ -146,13 +161,13 @@ ul {padding-left: 20px;}
     -o-border-radius: 0;
     border-radius: 0;
     color: transparent;
-    float: left;
+    float: right;
     height: 33px;
     text-indent: -9999px;
     width: 34px;
 }
-.leaflet-control-zoom .leaflet-control-zoom-in {background-position: 0 0;}
-.leaflet-control-zoom .leaflet-control-zoom-out {background-position: -34px 0;}
+.leaflet-control-zoom .leaflet-control-zoom-in {background-position: -34px 0;}
+.leaflet-control-zoom .leaflet-control-zoom-out {background-position: 0 0;}
 .leaflet-control-zoom .leaflet-control-zoom-in:hover,
 .leaflet-control-zoom .leaflet-control-zoom-out:hover {background-color: transparent;}
 
@@ -269,6 +284,19 @@ ul {padding-left: 20px;}
     text-transform: uppercase;
 }
 
+
+/* Preload */
+.preload {
+    background: #222;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 999999;
+}
+
+
 /* Helpers */
 .clearfix:before, .clearfix:after {content: " "; display: table;}
 .clearfix:after {clear: both;}
@@ -276,3 +304,4 @@ ul {padding-left: 20px;}
 .disable-mouse {pointer-events: none;}
 
 .hidden {display: none;}
+.invisible {opacity: 0;}

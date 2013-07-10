@@ -1,4 +1,4 @@
-/*global Backbone, $, define */
+/*global Backbone, window, $, define */
 
 define(['jquery', 'reveal'], function ($, Reveal) {
     'use strict';
@@ -13,8 +13,12 @@ define(['jquery', 'reveal'], function ($, Reveal) {
             backgroundTransition: 'linear'
         },
         initialize: function () {
+            this.iframe = window.self === window.top;
             this.reveal = Reveal;
+            this.logo = $('#omoLogo');
+
             this.createReveal();
+            this.checkIframe();
         },
         createReveal: function () {
             var self = this,
@@ -26,6 +30,7 @@ define(['jquery', 'reveal'], function ($, Reveal) {
 
             function onSlideReady() {
                 self.setBtnEvents();
+                Backbone.Mediator.publish('preload:stop');
             }
 
             reveal.initialize(this.options);
@@ -37,8 +42,10 @@ define(['jquery', 'reveal'], function ($, Reveal) {
 
             if (this.current.data('state') === 'map') {
                 this.$el.addClass('disable-mouse');
+                Backbone.Mediator.publish('map:show');
             } else {
                 this.$el.removeClass('disable-mouse');
+                Backbone.Mediator.publish('map:hide');
             }
         },
         setBtnEvents: function () {
@@ -56,6 +63,13 @@ define(['jquery', 'reveal'], function ($, Reveal) {
             }
 
             this.$el.find('.reveal-btn').on('click', onClickBtn);
+        },
+        checkIframe: function () {
+            if (this.iframe) {
+                this.logo.show();
+            } else {
+                this.logo.hide();
+            }
         }
     });
 

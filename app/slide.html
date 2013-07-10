@@ -8,12 +8,14 @@
 
         <link rel="icon" type="image/x-icon" href="favicon.ico">
         
-        <link rel="stylesheet" href="vendor/cartodb.js/themes/css/cartodb.css">
+        <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.css">
         <link rel="stylesheet" href="lib/reveal.js/css/reveal.css">
         <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
-        <div class="cartodb-visualization" id="map"></div>
+        <h1 id="omoLogo" class="logo-omo"><img src="img/assets/logo-omo.png" height="89" width="89"></h1>
+
+        <div class="cartodb-visualization invisible" id="map"></div>
 
         <div class="reveal">
             <div class="slides">
@@ -21,13 +23,15 @@
                 <section data-background="img/temp/temp1.jpg">
                     <article class="reveal-center-article">
                         <div class="reveal-article-content">
-                            <h2>A home to 200,000 agro-pastoralists is planned to be turned into an industrial powerhouse.</h2>
-                            <div class="columns">
-                                <p>Ethiopia’s Lower Omo Valley, one of Africa’s most unique places and home to 200,000 agro-pastoralists is planned to be turned into an industrial powerhouse. The early stages of the development have resulted in a loss of land and livelihoods for several thousand of EthiopiaÕs most vulnerable citizens and the future of 500,000 agro-pastoralists in Ethiopia and Kenya hang in the balance...</p>
+                            <div class="reveal-article-cell">
+                                <h2>A home to 200,000 agro-pastoralists is planned to be turned into an industrial powerhouse.</h2>
+                                <div class="columns">
+                                    <p>Ethiopia’s Lower Omo Valley, one of Africa’s most unique places and home to 200,000 agro-pastoralists is planned to be turned into an industrial powerhouse. The early stages of the development have resulted in a loss of land and livelihoods for several thousand of EthiopiaÕs most vulnerable citizens and the future of 500,000 agro-pastoralists in Ethiopia and Kenya hang in the balance...</p>
+                                </div>
+                                <footer class="clearfix">
+                                    <a href="#article1" data-overlay="true" class="reveal-btn">Live the story</a>
+                                </footer>
                             </div>
-                            <footer class="clearfix">
-                                <a href="#article1" data-overlay="true" class="reveal-btn">Live the story</a>
-                            </footer>
                         </div>                        
                     </article>
                 </section>
@@ -35,14 +39,16 @@
                 <section data-background="img/temp/temp2.jpg">
                     <article class="reveal-center-article">
                         <div class="reveal-article-content">
-                            <h2>Ethiopia produces 300,000 tons of sugar a year.</h2>
-                            <div class="columns">
-                                <p>With new planations in the Omo valley, the country aims to increase annual production to more than 2.25 million tons. This increase will be used to offset domestic sugar supply shortfalls, for ethanol production, and for export to sugar hungry markets.</p>
-                                <p>Exports of sugar and various biofuels have become very lucrative under the EUÕs Everything but Arms treaty (EBA) which gives preferential trading terms to LDC nations such as Ethiopia.</p>
+                            <div class="reveal-article-cell">
+                                <h2>Ethiopia produces 300,000 tons of sugar a year.</h2>
+                                <div class="columns">
+                                    <p>With new planations in the Omo valley, the country aims to increase annual production to more than 2.25 million tons. This increase will be used to offset domestic sugar supply shortfalls, for ethanol production, and for export to sugar hungry markets.</p>
+                                    <p>Exports of sugar and various biofuels have become very lucrative under the EUÕs Everything but Arms treaty (EBA) which gives preferential trading terms to LDC nations such as Ethiopia.</p>
+                                </div>
+                                <footer class="clearfix">
+                                    <a href="#gallery1" data-overlay="true" class="reveal-btn">Live the story</a>
+                                </footer>
                             </div>
-                            <footer class="clearfix">
-                                <a href="#gallery1" data-overlay="true" class="reveal-btn">Live the story</a>
-                            </footer>
                         </div>                        
                     </article>
                 </section>
@@ -116,8 +122,10 @@
                 </blockquote>
             </div>
         </div>
+
+        <div class="preload" id="preload"></div>
         
-        <script src="vendor/cartodb.js/dist/cartodb.js"></script>
+        <script src="http://libs.cartocdn.com/cartodb.js/v3/cartodb.js"></script>
         <script src="vendor/Backbone-Mediator/backbone-mediator.js"></script>
         <script src="vendor/requirejs/require.js" data-main="js/main"></script>
     </body>

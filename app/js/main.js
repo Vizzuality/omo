@@ -1,6 +1,6 @@
 /*global cartodb, require*/
 
-var dependencies = ['jquery', 'gallery', 'reveal', 'MapView', 'RevealView', 'OverlayView'];
+var dependencies = ['jquery', 'gallery', 'reveal', 'MapView', 'RevealView', 'OverlayView', 'PreloadView'];
 
 require.config({
     baseUrl: '',
@@ -11,7 +11,8 @@ require.config({
 
         MapView: 'js/map',
         RevealView: 'js/reveal',
-        OverlayView: 'js/overlay'
+        OverlayView: 'js/overlay',
+        PreloadView: 'js/preload'
     },
     shim: {
         jquery: {
@@ -29,22 +30,28 @@ require.config({
         },
         RevealView: {
             exports: 'RevealView'
+        },
+        PreloadView: {
+            exports: 'PreloadView'
         }
     }
 });
 
-require(dependencies, function ($, gallery, Reveal, MapView, RevealView, OverlayView) {
+require(dependencies, function ($, gallery, Reveal, MapView, RevealView, OverlayView, PreloadView) {
     'use strict';
 
     var app = {};
 
     function initialize() {
 
+        app.preloadView = new PreloadView();
         app.revealView = new RevealView();
         app.mapView = new MapView();
         app.overlayView = new OverlayView();
 
     }
 
-    $(initialize); // DOM Ready
+    $(function() {
+        initialize();
+    });
 });
