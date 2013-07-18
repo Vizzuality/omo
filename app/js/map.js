@@ -58,6 +58,7 @@ define(['jquery'], function ($) {
 
             cartodbLayer.on('done', function (layer) {
                 self.map.addLayer(layer);
+                $('.cartodb-logo').css('display', 'none');
                 
             });
                              
@@ -107,7 +108,8 @@ define(['jquery'], function ($) {
             if (this.id === 'map') {
                 cartodbLayer=cartodb.createLayer(this.map, vis);
                 cartodbLayer.on('done', function (layer) {
-                    self.map.addLayer(layer);               
+                    self.map.addLayer(layer); 
+                     $('.cartodb-logo').css('display', 'none');
                 });
             }
         }

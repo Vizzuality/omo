@@ -13,9 +13,11 @@ define([], function () {
         },
         initialize: function () {
             this.content = $('#contentOverlay');
+            
         },
         render: function (data) {
             this.content.html(data);
+            this.setBtnEvents();
         },
         open: function (target) {
             var contentHtml = $(target).html();
@@ -31,6 +33,23 @@ define([], function () {
             e.preventDefault()
             this.$el.fadeOut('fast');
             this.content.empty();
+        },
+         setBtnEvents: function () {
+            var self, btn;
+
+            self = this;
+
+            function onClickBtn(e) {
+                console.log('overlay');
+                btn = $(e.target);
+                if (btn.data('overlay') === true) {
+                    self.open(btn.attr('href'));
+                    //Backbone.Mediator.publish('overlay:open', btn.attr('href'));
+                    e.preventDefault();
+                }
+            }
+
+            this.$el.find('a').on('click', onClickBtn);
         }
     });
 
