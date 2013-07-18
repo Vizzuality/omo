@@ -1,5 +1,5 @@
 {
-  "name": "i3dat",
+  "name": "omo",
   "version": "1.0.0",
   "main": "app/js/main.js",
   "ignore": [
@@ -12,6 +12,7 @@
     "jquery": "~2.0.2",
     "normalize-css": "~2.1.2",
     "Backbone-Mediator": "latest",
-    "requirejs-domready": "~2.0.1"
+    "requirejs-domready": "~2.0.1",
+    "kendo-ui": "~2013.1.319"
   }
 }

@@ -9,6 +9,8 @@
         <link rel="icon" type="image/x-icon" href="favicon.ico">
         
         <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.css">
+        <link rel="stylesheet" href="vendor/kendo/styles/kendo.common.min.css">
+        <link rel="stylesheet" href="vendor/kendo/styles/kendo.default.min.css">
         <link rel="stylesheet" href="lib/reveal.js/css/reveal.css">
         <link rel="stylesheet" href="css/main.css">
     </head>
@@ -19,33 +21,29 @@
 
         <div class="cartodb-visualization invisible" id="map"></div>
 
+        <div class="cartodb-visualization invisible" id="splitter">
+            <div id="left-pane">
+                <div class="pane-content">
+                    <div class="cartodb-splitter" id="mapLeft"></div>
+                </div>
+            </div>
+            <div id="right-pane">
+                <div class="pane-content">
+                    <div class="cartodb-splitter" id="mapRight"></div>
+                </div>
+            </div>
+        </div>
+
         <div class="reveal">
             <div class="slides">
-                
-                <section data-background="img/temp/temp1.jpg">
+                <!-- Slide 1: Content -->
+                <section data-background="img/bg/1.jpg">
                     <article class="reveal-center-article">
                         <div class="reveal-article-content">
                             <div class="reveal-article-cell">
                                 <h2>A home to 200,000 agro-pastoralists is planned to be turned into an industrial powerhouse.</h2>
                                 <div class="columns">
-                                    <p>Ethiopia’s Lower Omo Valley, one of Africa’s most unique places and home to 200,000 agro-pastoralists is planned to be turned into an industrial powerhouse. The early stages of the development have resulted in a loss of land and livelihoods for several thousand of EthiopiaÕs most vulnerable citizens and the future of 500,000 agro-pastoralists in Ethiopia and Kenya hang in the balance...</p>
-                                </div>
-                                <footer class="clearfix">
-                                    <a href="#article1" data-overlay="true" class="reveal-btn">Live the story</a>
-                                </footer>
-                            </div>
-                        </div>                        
-                    </article>
-                </section>
-                
-                <section data-background="img/temp/temp2.jpg">
-                    <article class="reveal-center-article">
-                        <div class="reveal-article-content">
-                            <div class="reveal-article-cell">
-                                <h2>Ethiopia produces 300,000 tons of sugar a year.</h2>
-                                <div class="columns">
-                                    <p>With new planations in the Omo valley, the country aims to increase annual production to more than 2.25 million tons. This increase will be used to offset domestic sugar supply shortfalls, for ethanol production, and for export to sugar hungry markets.</p>
-                                    <p>Exports of sugar and various biofuels have become very lucrative under the EUÕs Everything but Arms treaty (EBA) which gives preferential trading terms to LDC nations such as Ethiopia.</p>
+                                    <p>Ethiopia’s Lower Omo Valley, one of Africa’s most unique places and home to 200,000 agro-pastoralists is planned to be turned into an industrial powerhouse. The early stages of the development have resulted in a loss of land and livelihoods for several thousand of Ethiopia’s most vulnerable citizens and the future of 500,000 agro-pastoralists in Ethiopia and Kenya hang in the balance…</p>
                                 </div>
                                 <footer class="clearfix">
                                     <a href="#gallery1" data-overlay="true" class="reveal-btn">Live the story</a>
@@ -54,35 +52,265 @@
                         </div>                        
                     </article>
                 </section>
-
-                <section data-background="url(img/assets/bg-article-left.png) repeat-y center" data-state="map">
+                
+                <!-- Slide 2: Interactive - Map -->               
+                <section data-background="url(img/assets/bg-article-left.png) repeat-y center" data-state="map1">
                     <article class="reveal-left-article">
                         <div class="reveal-article-content">
                             <h2>Lower Omo Valley</h2>
-                            <div class="colums">
-                                <p>The Lower Omo Valley in southern Ethiopia is one of the most culturally and biologically diverse places on Earth. Approximately 200,000 indigenous people live in the Lower Omo Valley.</p>
-
-								<p>The Omo River flows south into Kenya’s Lake Turkana. <a href="#">Lake Turkana</a> is the world’s largest desert lake and around 300,000 people live along its shores. The Omo and Turkana watershed is home to three national parks, and two World Heritage sites.</p>
-
-								<p>The Lower Omo Valley is also one of the most remote and underdeveloped regions of Ethiopia. But that is set to change</p>
-                            </div>
+                            <p>The Lower Omo Valley in southern Ethiopia is one of the most culturally and biologically diverse places on Earth. Approximately 200,000 indigenous people live in the Lower Omo Valley.</p>
+							<p>The Omo River flows south into Kenya’s Lake Turkana. <a href="#" id="laketurkana">Lake Turkana</a> is the world’s largest desert lake and around 300,000 people live along its shores. The Omo and Turkana watershed is home to three national parks, and two <a href="http://whc.unesco.org/en/about/" target="_blank">World Heritage sites</a>.</p>
+							<p>The Lower Omo Valley is also one of the most remote and underdeveloped regions of Ethiopia. But that is set to change</p>
                             <footer class="clearfix">
-                                <a href="#quote1" data-overlay="true" class="reveal-btn">Live the story</a>
+                                <a href="#gallery2" data-overlay="true" class="reveal-btn">Live the story</a>
+                            </footer>
+                        </div>                
+                    </article>
+                </section>
+
+                <!-- Slide 3: Interactive - Map -->                
+                <section data-background="url(img/assets/bg-article-left.png) repeat-y center" data-state="map2">
+                    <article class="reveal-left-article">
+                        <div class="reveal-article-content">
+                            <h2>Tribal diversity</h2>
+                            <p>The Lower Omo Valley is home to many distinct <a href="#callout3a" data-overlay="true">indigenous peoples</a>. All are intimately tied to the lands and waters around the Omo River for their livelihoods and cultural identity</p>
+                            <p>Most people in this region are <a href="#callout3b" data-overlay="true" >pastoralists</a>. Most raise cattle, while some also grow sorghum along the Omo River and its tributaries while others harvest fish from the river.</p>
+                            <footer class="clearfix">
+                                <a href="#quote3" data-overlay="true" class="reveal-btn">Government of Ethiopia’s words</a>
+                            </footer>
+                        </div>                        
+                    </article>
+                </section>
+                
+                <!-- Slide 4: Interactive - Map -->
+                <section data-background="url(img/assets/bg-article-left.png) repeat-y center" data-state="splitter">
+                    <article class="reveal-left-article">
+                        <div class="reveal-article-content">
+                            <h2>Government Plan</h2>
+                            <p>In January 2011, then Ethiopian Prime Minister Meles Zenawi stated “… there will be a very big irrigation project and related agricultural development in this [South Omo]zone. I promise you that, even though this area is known as backward in terms of civilization, it will become an example of <a href="http://www.mursi.org/pdf/Meles%20Jinka%20speech.pdf" target="_blank" title="Meles Zenawi Speech">rapid development</a>.” </p>
+                            <p>Plans include:</p>
+                            <ul>
+                                <li><a href="#callout4a" data-overlay="true">Africa’s tallest dam-Gibe III</a></li>
+                                <li>2000 square kilometers of state run irrigated sugar plantations</li>
+                                <li>2000 square kilometers of private commercial agriculture</li>
+                                <li>200km of irrigation canals</li>
+                                <li>various roads, bridges, and sugar processing factories and <a href="#" data-overlay="true">oil exploration</a></li>
+                            </ul>
+                            <p>Ethiopia also has plans to construct Gibe IV and Gibe V dams on the Omo River.</p>
+                            <p>Power generated from the Gibe dams will be used inside Ethiopia or for export to neighboring countries.</p>
+                            <p><a href="#callout4b" data-overlay="true">Who is financing these developments?</a></p>
+                            <p>For further information:</p>
+                            <ul>
+                                <li>South Omo Ag investment brochure</li>
+                                <li><a href="http://www.mursi.org/pdf/Meles%20Jinka%20speech.pdf" target="_blank" title="Meles Zenawi Speech">Meles Zenawi Speech</a></li>
+                                <li>Eth Investment Brochure</li>
+                            </ul>
+                        </div>                        
+                    </article>
+                </section>
+                
+                <!-- Slide 5: Content -->
+                <section data-background="img/bg/2.jpg">
+                    <article class="reveal-center-article">
+                        <div class="reveal-article-content">
+                            <div class="reveal-article-cell">
+                                <h2>Ethiopia’s sugar industry</h2>
+                                <div class="columns">
+                                    <p>Ethiopia produces 300,000 tons of sugar a year. With new sugar plantations in the Omo valley, the country aims to increase annual production to more than 2.25 million tons  (GTP reference/callout). This increase will be used to offset domestic sugar supply shortfalls, for ethanol production, and for export to <a href="#callout5" data-overlay="true">sugar hungry markets</a>.</p>
+                                </div>
+                                <footer class="clearfix">
+                                    <a href="#quote5" data-overlay="true" class="reveal-btn">Abay Tsehaye words</a>
+                                </footer>
+                            </div>
+                        </div>                       
+                    </article>
+                </section>
+                
+                <!-- Slide 6: Comparison -->
+                <section data-background="url(img/assets/bg-article-left.png) repeat-y center" data-state="map3">
+                    <article class="reveal-left-article">
+                        <div class="reveal-article-content">
+                            <h2>Early development</h2>
+                            <p>As of January 2013, 5.9%P of land had been cleared to make way for the sugar plantations.  Sugar nurseries have been established and a diversion dam was built to fill the x km of irrigation canals that were developed to supply water to this thirsty crop.</p>
+                            <p>The vast majority of the 6478 hectares of land cleared was land traditionally used by the Bodi for cattle grazing and for crop production.</p>
+                            <footer class="clearfix">
+                                <a href="#gallery1" data-overlay="true" class="reveal-btn">Live the story</a>
                             </footer>
                         </div>                       
                     </article>
                 </section>
 
+                <!-- Slide 7: Interactive - Gallery -->
+                <section data-background="img/bg/3.jpg">
+                    <article class="reveal-center-article">
+                        <div class="reveal-article-content">
+                            <div class="reveal-article-cell">
+                                <h2>Diversion dam</h2>
+                                <div class="columns">
+                                    <p>The construction of a diversion dam caught everyone by surprise when it was constructed in May 2012 to divert the waters of the Omo River into the sugar plantation’s irrigation canals. Not built to proper engineering standards the earthen structure broke twice before successfully diverting waters into the irrigation canals. Rising floodwaters behind this dam resulted in the flooding of Bodi farms, huts, and granaries. 220 households were displaced and their sorghum crops <a href="#gallery7" data-overlay="true">lost for the year</a>. Impacts were also felt downstream where water levels dropped dramatically.</p>
+                                </div>
+                                <footer class="clearfix">
+                                    <a href="#gallery7" data-overlay="true" class="reveal-btn">Live the story</a>
+                                </footer>
+                            </div>
+                        </div>                       
+                    </article>
+                </section>
+
+                <!-- Slide 8: Interactive -->
+                <section data-background="img/bg/4.jpg">
+                    <article class="reveal-center-article">
+                        <div class="reveal-article-content">
+                            <div class="reveal-article-cell">
+                                <h2>Villagization</h2>
+                                <div class="columns">
+                                    <p>According to <a href="#callout8a" data-overlay="true">government documents</a>, all indigenous people in the Lower Omo Valley are to be resettled into permanent villages. These relocations are underway in the Bodi, Mursi, Nyangatom, and Hamer areas.</p>
+                                    <p>As their traditional lands are being cleared for sugars, Bodi are being resettled into one of three permanent villages:  Chunguro, Belolong, and Elegobia. The village locations are dry and most <a href="#quote8a" data-overlay="true">services are not yet available</a>.</p>
+                                    <p>There are anecdotal reports that government is using food aid to lure people into the new villages. Many Bodi stay long enough to receive food aid and then leave the <a href="#quote8b" data-overlay="true">villages</a>.</p>
+                                    <p>In the Bodi areas, as of January 2013, an estimated 500 Bodi households had been resettled into the new villages.</p>
+                                    <p>For more info:</p>
+                                    <ul>
+                                        <li><a href="#callout8a" data-overlay="true">Villagization elsewhere in Ethiopia?</a></li>
+                                        <li><a href="#callout8b" data-overlay="true">Who funds villagization?</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>                       
+                    </article>
+                </section>
+
+                <!-- Slide 9: Content -->
+                <section data-background="img/bg/5.jpg">
+                    <article class="reveal-center-article">
+                        <div class="reveal-article-content">
+                            <div class="reveal-article-cell">
+                                <h2>Government and donor response</h2>
+                                <div class="columns">
+                                    <a href="#quote9" data-overlay="true">What the Government of Ethiopia is saying</a>
+                                </div>
+                            </div>
+                        </div>                       
+                    </article>
+                </section>
+
+                <!-- Slide 10: Content -->
+                <section data-background="img/bg/6.jpg">
+                    <article class="reveal-center-article">
+                        <div class="reveal-article-content">
+                            <div class="reveal-article-cell">
+                                <h2>Current impact</h2>
+                                <div class="columns">
+                                    <p>1200 Bodi living in the area of the reservoir have lost their homes and have had their livelihoods decimated as the floodwaters engulfed their farms and their grain stores. Some have moved into the new settlement villages whilst others are moving around with their cattle in the areas that have yet to be cleared for <a href="#quote10b" data-overlay="true">sugar</a>.</p>
+                                    <p>Mursi and Kwegu families have also had their farms, <a href="#callout10" data-overlay="true">beehives</a>, and grain stores cleared. {link to Mursi Red Frog video}</p>
+                                    <p>The impacts are already devastating for those impacted individuals, but what is of particular concern is what will happen when the development scheme is fully implemented…</p>
+                                </div>
+                                <footer class="clearfix">
+                                    <a href="#quote10a" data-overlay="true" class="reveal-btn">Live the story</a>
+                                </footer>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+
+                <!-- Slide 11: Content -->
+                <section data-background="img/bg/7.jpg">
+                    <article class="reveal-center-article">
+                        <div class="reveal-article-content">
+                            <div class="reveal-article-cell">
+                                <h2>The future</h2>
+                                <div class="columns">
+                                    <p>Under the current proposals, all 200,000 of the Lower Omo’s indigenous people will be displaced from their ancestral lands as they will be relocated to permanent villages to provide labor to the <a href="#quote11" data-overlay="true">sugar plantations</a>.</p>
+                                    <p>They are concerned about the end of their way of life and the potential for inter-tribal conflict brought about by increased competition over what scarce grazing land will be left.</p>
+                                    <p>They have fears about how they will feed themselves and the social problems that will result from the rapid transition from agro-pastoralism to farm laborer.</p>
+                                    <p>There are also concerns in Kenya where <a href="#callout11a" data-overlay="true">projections</a> show that water levels in Kenya’s Lake Turkana will drop by up to 22 meters, having devastating consequences on the livelihoods of the 300,000 Kenyans who rely on the lake for their <a href="#callout11b" data-overlay="true">livelihoods</a>.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+
+                <!-- Slide 12: Content -->
+                <section data-background="img/bg/8.jpg">
+                    <article class="reveal-center-article">
+                        <div class="reveal-article-content">
+                            <div class="reveal-article-cell">
+                                <h2>Summary</h2>
+                                <div class="columns">
+                                    <p>For more information links:</p>
+                                    <ul>
+                                        <li>“What Will Happen if Hunger Comes?” report</li>
+                                        <li>HRW Ethiopia page</li>
+                                        <li>Other NGOs? IR, SI, FoLT?</li>
+                                        <li>Mursi.org</li>
+                                    </ul>
+                                    <p>To contact Human Rights Watch’s Ethiopia team please click here </p>
+                                </div>
+                                <footer class="clearfix">
+                                    <a href="#quote1" data-overlay="true" class="reveal-btn">Live the story</a>
+                                </footer>
+                            </div>
+                        </div>
+                    </article>
+                </section>
             </div>
         </div>
 
-        <!-- Gallery, Article or Blockquote -->
-        <div id="overlay" class="overlay">
-            <a id="closeOverlayBtn" class="overlay-close-btn" href="#">Close</a>
-            <div id="contentOverlay" class="overlay-content"></div>
+
+        <!--
+        ================
+         SLIDES CONTENT
+        ================
+        -->   
+
+        <!-- Slide 1 Content -->
+        <div class="hidden" id="gallery1">
+            <div class="gallery">
+                <div class="gallery-wrap">
+                    <a class="gallery-panel"><img src="img/gallery1/gallery1_1.jpeg" ></a>
+                    <a class="gallery-panel"><img src="img/gallery1/gallery1_2.jpeg" ></a>
+                    <a class="gallery-panel"><img src="img/gallery1/gallery1_3.jpeg" ></a>
+                    <a class="gallery-panel"><img src="img/gallery1/gallery1_4.jpeg" ></a>
+                    <a class="gallery-panel"><img src="img/gallery1/gallery1_5.jpeg" ></a>
+                    <a class="gallery-panel"><img src="img/gallery1/gallery1_6.jpeg" ></a>
+                    <a class="gallery-panel"><img src="img/gallery1/gallery1_7.jpeg" ></a>
+                    <a class="gallery-panel"><img src="img/gallery1/gallery1_8.jpeg" ></a>
+                    <a class="gallery-panel"><img src="img/gallery1/gallery1_9.jpeg" ></a>
+                    <a class="gallery-panel"><img src="img/gallery1/gallery1_10.jpeg" ></a>
+                    <a class="gallery-panel"><img src="img/gallery1/gallery1_11.jpeg" ></a>
+                    
+                </div>
+                <a href="#prev" class="gallery-prev">prev</a>
+                <a href="#next" class="gallery-next">next</a>
+            </div>
         </div>
 
-        <div class="hidden" id="article1">
+        <!-- Slide 2 Content -->
+        <div class="hidden" id="gallery2">
+            <div class="gallery">
+                <div class="gallery-wrap">
+                    <a href="http://www.youtube.com/embed/NM7rPtWTWUY" class="gallery-panel"><img src="img/temp/gallery-thumb.jpg" height="435" width="652"></a>
+                    <a href="http://www.youtube.com/embed/irajDZAuOOs" class="gallery-panel"><img src="img/temp/gallery-thumb.jpg" height="435" width="652"></a>
+                    <a href="http://www.youtube.com/embed/zTCppicXZEo" class="gallery-panel"><img src="img/temp/gallery-thumb.jpg" height="435" width="652"></a>
+                </div>
+                <a href="#prev" class="gallery-prev">prev</a>
+                <a href="#next" class="gallery-next">next</a>
+                <div class="gallery-viewer" id="galleryViewer"></div>
+            </div>
+        </div>
+
+        <!-- Slide 3 Content -->
+        <div class="hidden" id="quote3">
+            <div class="overlay-wrap">
+                <blockquote class="overlay-quote">
+                    <p>One Omo man  sums up the importance of this special place: “The Omo River is our life; we are enormously dependent on it for our livelihoods. We cannot think of life without the river as it is our source of livelihoods. So, you can guess what someone feels when he is told his life is absolutely endangered.”</p>
+                    <footer>
+                        <cite>This quote is taken from pages 5-6 of the government of Ethiopia’s report on an April 2011 pastoralist tour of the Gibe III site, <a href="http://www.gibe3.com.et" target="_blank">http://www.gibe3.com.et</a></cite>
+                    </footer>
+                </blockquote>
+            </div>
+        </div>
+
+        <div class="hidden" id="callout3a">
             <div class="overlay-wrap">
                 <article class="overlay-article">
                     <div class="columns">
@@ -100,8 +328,75 @@
                 </article>
             </div> 
         </div>
+        
+        <div class="hidden" id="callout3b">
+            <div class="overlay-wrap">
+                <article class="overlay-article">
+                    <div class="columns">
+                        <p>Definitions of pastoralism vary widely, but generally all involve the focus on livestock production and some form of mobility. Agro-pastoralism combines elements of pastoralism with sedentary agriculture. Many of the Lower Omo’s indigenous populations practice agro-pastoralism as they grow food along the banks of the Omo River and other fertile locations, in addition to cattle rearing. See <a href="http://data.iucn.org/wisp/pastoralism-definitions.html" target="_blank">http://data.iucn.org/wisp/pastoralism-definitions.html</a> for more  definitions of pastoralism.</p>
+                    </div> 
+                </article>
+            </div> 
+        </div>
 
-        <div class="hidden" id="gallery1">
+        <!-- Slide 4 Content -->
+        <div class="hidden" id="quote4">
+            <div class="overlay-wrap">
+                <blockquote class="overlay-quote">
+                    <p>“There will be big, state, commercial farms.”</p>
+                </blockquote>
+            </div>
+        </div>
+
+        <div class="hidden" id="callout4a">
+            <div class="overlay-wrap">
+                <article class="overlay-article">
+                    <div class="columns">
+                        <p>Africa’s tallest dam has been under construction since 2006 and is scheduled to be in operation by 2013. It will generate 1870MW of much needed power for Ethiopia and neighboring countries, but at a cost to local people. The annual flood of the Omo River, so critical for sorghum production, will be eliminated, and water levels in Kenya’s Lake Turkana could be reduced by as much as 22 meters.  Major International Financial Institutions (World Bank, European Investment Bank, etc) declined to finance the dam. A significant portion of the funding for the $2 billion project comes from the Industrial-commercial Bank of China.</p>
+                    </div> 
+                </article>
+            </div> 
+        </div>
+        
+        <div class="hidden" id="callout4b">
+            <div class="overlay-wrap">
+                <article class="overlay-article">
+                    <div class="columns">
+                        <ul>
+                            <li>Industrial Commercial Bank of China (ICBC)-$500 million financing of Gibe III  in August 2010</li>
+                            <li>China Development Bank -- $500 million in loans to build two sugar refineries, one of which is in the Omo Valley.</li>
+                            <li>Indian Exim Bank- $640 million in financing for Ethiopia’s sugar industry. One of the conditions is that 75% of this loan must be used for goods and services imported from India.</li> 
+                            <li>World Bank $684 million in financing approved in July 2012 for a transmission line that would export power from Ethiopia to Kenya.</li>
+                        </ul>
+                    </div> 
+                </article>
+            </div> 
+        </div>
+
+        <!-- Slide 5 Content -->
+        <div class="hidden" id="quote5">
+            <div class="overlay-wrap">
+                <blockquote class="overlay-quote">
+                    <p>“This corporation was established to make Ethiopia one of the major sugar exporters. The plan is to start from scratch because we are building these factories in areas where there is no activity. Those areas are scarcely populated and you don’t have to displace many people. And if you have to displace a few people, you relocate them and you give them irrigated land and infrastructure.” Tsehaye, a former national security adviser, says Sugar Corporation will offer investors a “full package of support, helping them in handling local communities.”</p>
+                    <footer>
+                        <cite>Abay Tsehaye, the now director general of the Ethiopian Sugar Corporation</cite>
+                    </footer>
+                </blockquote>
+            </div>
+        </div>
+
+        <div class="hidden" id="callout5">
+            <div class="overlay-wrap">
+                <article class="overlay-article">
+                    <p>Exports of sugar and various biofuels have become very lucrative under the EU’s Everything but Arms treaty (EBA) which gives preferential trading terms to LDC nations such as Ethiopia.</p>
+                </article>
+            </div> 
+        </div>
+
+        <!-- Slide 6 Content -->
+
+        <!-- Slide 7 Content -->
+        <div class="hidden" id="gallery7">
             <div class="gallery">
                 <div class="gallery-wrap">
                     <a href="http://www.youtube.com/embed/NM7rPtWTWUY" class="gallery-panel"><img src="img/temp/gallery-thumb.jpg" height="435" width="652"></a>
@@ -110,19 +405,218 @@
                 </div>
                 <a href="#prev" class="gallery-prev">prev</a>
                 <a href="#next" class="gallery-next">next</a>
-                <div class="gallery-viewer" id="galleryViewer"></div>
             </div>
         </div>
 
-        <div class="hidden" id="quote1">
+        <div class="hidden" id="quote7a">
             <div class="overlay-wrap">
                 <blockquote class="overlay-quote">
-                    <p>“In the coming five years there will be a very big irrigation project and related agricultural development in this zone. I promise you that, even though this area is known as backward in terms of civilization, it will become an example of rapid development.”</p>
+                    <p>“The water has finished the crops. It finished them all. …The sorghum on the Omo river banks was just ready to be harvested when the river flooded, and we ran away without anything… The water kept coming, kept coming, the crops were about to ripen when the water finished the fields. It put the maize stalks to the ground, the granaries as well.“</p>
                     <footer>
-                        <cite>Ethiopian Prime Minister Meles Zenawi - <a href="#">Read more</a></cite>
+                        <cite>Man from Magolony</cite>
                     </footer>
                 </blockquote>
             </div>
+        </div>
+
+        <div class="hidden" id="quote7b">
+            <div class="overlay-wrap">
+                <blockquote class="overlay-quote">
+                    <p>“They have worked, and worked, and worked, and worked on the fields, they have finished weeding. We weed three times. The maize were ready to be harvested, the women were brown [with mud, because of the work], and people were happy; then the water came and flooded the fields and the granaries, pshhhhhh… The women were crying as if someone has died. The women said“the land has become bad. The water has swallowed everything and has finished our food, the maize in the fields and the sorghum in the granaries.” The land was so silent [people were too distressed to talk]. People didn’t talk.”</p>
+                    <footer>
+                        <cite>Man from Gura</cite>
+                    </footer>
+                </blockquote>
+            </div>
+        </div>
+
+        <div class="hidden" id="quote7c">
+            <div class="overlay-wrap">
+                <blockquote class="overlay-quote">
+                    <p>“Now, in the bush, where can we cultivate? Some people who wanted to cultivate: “let’s go to the west and cultivate!” Now, we went to the place the water had flooded and started the work. Maybe they will lock the river again and we will be left with nothing again. Now people worry about it. Now there was one message that Y [representative of the kebele] told them [the government]: “If you block the water again and you go to the Nyomony, they will shoot you, they won’t leave you.” Now they left this idea to block the water. Maybe because of the message of Y.</p>
+                    <footer>
+                        <cite>Fear for the future quote (November 2012)</cite>
+                    </footer>
+                </blockquote>
+            </div>
+        </div>
+
+        <div class="hidden" id="quote7d">
+            <div class="overlay-wrap">
+                <blockquote class="overlay-quote">
+                    <p>“What they have finished up is the Omo river. I went to cultivate on the river banks, I left the children to go and cultivate there, and then there was no water in the Omo.“</p>
+                    <footer>
+                        <cite>Kwegu fisherman</cite>
+                    </footer>
+                </blockquote>
+            </div>
+        </div>
+
+        <!-- Slide 8 Content -->
+        <div class="hidden" id="quote8a">
+            <div class="overlay-wrap">
+                <blockquote class="overlay-quote">
+                    <article>
+                        <p>“The land is very hard [dry] during the dry season. When it is the rainy season, it is very muddy and your legs get stuck in until your knees. We are stuck in the mud. When it dries, it’s very dry, you cannot plant a stick. We don’t know if the sorghum will grow well there.”</p>
+                        <footer>
+                            <cite>Bodi man, November 2012</cite>
+                        </footer>
+                    </article>
+                    </article>
+                        <p>You can’t find trees to build your house. The people who came back said: “there is no tree to build our houses, there is no grass!”</p>
+                        <footer>
+                            <cite>Man from Chirim</cite>
+                        </footer>
+                    </article>
+
+                    <article>
+                        <p>In Bodi, in the open plain there are trees. Here he [government] has cut everything…</p>
+                        <footer>
+                            <cite>Man from Arbujo</cite>
+                        </footer>
+                    </article>
+                </blockquote>
+            </div>
+        </div>
+
+        <div class="hidden" id="quote8b">
+            <div class="overlay-wrap">
+                <blockquote class="overlay-quote">
+                    <p>I planted a few poles just in order to receive the food relief. I have planted eight poles only.</p>
+                    <footer>
+                        <cite>The man</cite>
+                    </footer>
+                </blockquote>
+            </div>
+        </div>
+
+        <div class="hidden" id="callout8a">
+            <div class="overlay-wrap">
+                <article class="overlay-article">
+                    <h2>Villagization elsewhere in Ethiopia</h2>
+                    <div class="columns">                        
+                        <p>The villagization program is part of a nationwide effort to move 1.5 million pastoralists and agro-pastoralists into permanent villages. Human Rights Watch has documented various abuses related to the villagization program in Gambella region . In Gambella, indigenous populations were being moved into new villages by force. Locations were dry and not suitable for food production and services were not being provided as promised. Those who questioned the program were being arbitrarily detained, threatened, or beaten. Due to the negative impacts of this program, several thousand individuals have fled to neighboring South Sudan and Kenya. See Waiting Here for Death for more information{link http://www.hrw.org/node/104284}Villagization is also underway in Afar, Somali, and Benishangul-Gumuz regions.</p>
+                    </div> 
+                </article>
+            </div> 
+        </div>
+
+        <div class="hidden" id="callout8b">
+            <div class="overlay-wrap">
+                <article class="overlay-article">
+                    <h2>Who funds villagization?</h2>
+                    <div class="columns">                        
+                        <p>The Protection of Basic Services (PBS) program contributes to the salaries of the woreda government employees who are implementing the villagization program. PBS provides services in the areas of education, health care, water, roads and agriculture - the exact five areas of the villagization program. The program pays salaries of teachers, health care extension workers and others who have, in some villages, been asked to mobilize people to move to the new villages. In September 2012 the third round of the PBS program was approved. The major contributors to PBS are the World Bank, DFID, the African Development Bank, and the European Commission.</p>
+                        <p>According to the villagization plan {link} for Lower Omo, the Pastoral Development Community Development Project (PCDP) is also expected to fund certain services in the new village. PCDP is funded by the World Bank and the African Development Bank. The third round of financing for PCDP is to be considered by the World Bank in September 2013. {link to PCDP III page}</p>
+                    </div> 
+                </article>
+            </div> 
+        </div>
+
+        <!-- Slide 9 Content -->
+        <div class="hidden" id="callout9a">
+            <div class="overlay-wrap">
+                <article class="overlay-article">
+                    <div class="columns">
+                        <h2>From donor assessment</h2>
+                        <p>“In summary these allegations included:</p>
+                        <ul>
+                            <li>Registration and confiscation of weapons and munitions</li>
+                            <li>Up to eighty arrests of ‘innocent’ people</li>
+                            <li>Destroyed grain stores for land clearance</li>
+                            <li>Government threats including “sell your cattle or we will inject and kill them”</li>
+                            <li>Confiscation of cattle medicine</li>
+                            <li>Limited access to seasonal agricultural lands (for flood retreat agriculture) near the Omo river</li>
+                            <li>Siphoning off of food aid</li>
+                            <li>Lack of communication – meetings held significant distances away either in Jinka or Hanu [sp?]</li>
+                            <li>Use of force and intimidation with presence of ‘military’ [likely federal police]</li>
+                            <li>Rape of women and in one case a young boy.</li>
+                        </ul> 
+                        <p>As a consequence of these events the Mursi and Bodi in particular stated that they were living in fear, resorting to other food sources or going hungry. The phrase ‘waiting to die’ was used. Although these allegations are extremely serious they could not be substantiated by this visit.” (the Omo donor assessment pdf)</p>
+                    </div> 
+                </article>
+            </div> 
+        </div>
+
+        <div class="hidden" id="callout9b">
+            <div class="overlay-wrap">
+                <article class="overlay-article">
+                    <div class="columns">
+                        <h2>UK parliamentary enquiry </h2>
+                        <p><strong>Martin Horwood</strong>: To ask the Secretary of State for International Development whether her Department found that human rights violations were occurring in South Omo in the Southern Nations, Nationalities and People's Region, Ethiopia during its recent mission to that area. [126709]</p>
+                        <p><strong>Justine Greening</strong>: The Department for International Development was not able to substantiate the allegations of human rights violation it received during its visit to South Omo in January 2012, and will be returning to the area to examine these further.</p>
+                    </div> 
+                </article>
+            </div> 
+        </div>
+
+        <!-- Slide 10 Content -->
+        <div class="hidden" id="quote10a">
+            <div class="overlay-wrap">
+                <blockquote class="overlay-quote">
+                    <p>My name is Red Frog. Yesterday I went to the Omo River. I went to go and check on my sorghum storage, to check if it had been eaten by baboons. When I went I saw the roads. The cleared a lot of land. They dug it all. They dug out my cooking fire rocks. They dug up all my sorghum in the grain stores and threw it away. The place where I keep my children they dug it up and threw it away. My land was all dug up and thrown away.  Yesterday evening I came back here with nothing, no grain. My land is gone. The government when it came and threw my grain stores away did it not see them? Does it not have any eyes?</p>
+                    <footer>
+                        <cite>Red Frog, Mursi Woman, cattle village</cite>
+                    </footer>
+                </blockquote>
+            </div>
+        </div>
+
+        <div class="hidden" id="quote10b">
+            <div class="overlay-wrap">
+                <blockquote class="overlay-quote">
+                    <p>They came and just started clearing the forest without talking to us. Why are they clearing the forest? We have never seen anything like this before. We don’t know how it will be. The forest is the forest of ours forever. We the owners cleared small patches and planted. We don’t want the whole forest to be cleared. ‘We’re going to clear it,’ said the government. They came by force. They came with their trucks and ran over some of our people. They are taking our land by force. The bulldozer even cleared the gardens where our crops were growing. They cleared a very straight road to a place called Shigitan. Where they cleared out the cultivation sites we had already planted. Then they went south down the Omo River. They dug some holes and made a village for the road workers.</p>
+                    <footer>
+                        <cite>Bodi Man</cite>
+                    </footer>
+                </blockquote>
+            </div>
+        </div>
+
+        <div class="hidden" id="callout10">
+            <div class="overlay-wrap">
+                <article class="overlay-article">
+                    <div class="columns">
+                        <p>Beehives are a key component of the livelihoods of Bodi, Kwegu and other Lower Omo peoples. The honey from the bees is consumed or sold/traded for other goods.</p>
+                    </div> 
+                </article>
+            </div> 
+        </div>
+
+        <!-- Slide 11 Content -->
+        <div class="hidden" id="quote11">
+            <div class="overlay-wrap">
+                <blockquote class="overlay-quote">
+                    <p>We don’t lie, we tell you the truth. The land is ours. If we wanted it to be cleared, we would agree. But we don’t want that because we don’t want to live in towns and be in towns. The bush is good, we have no poor people, we have many bees, honey, sorghum, so we keep eating. When it is dry season, we can feed leaves to the cattle, and during the rainy season they come back and graze the grass. Many wild animals. We forbid clearing bc we want to keep our wildlife. We are very sad to see the bush disappear. 30 beehives in the big trees, with this honey we can buy cattle. The govt say they will take care of us, but there are many poor people in their towns, how can they take care of us?</p>
+                    <footer>
+                        <cite>Bodi in France</cite>
+                    </footer>
+                </blockquote>
+            </div>
+        </div>
+
+        <!-- Slide 12 Content -->
+        <div class="hidden" id="callout12">
+            <div class="overlay-wrap">
+                <article class="overlay-article">
+                    <div class="columns">
+                        <p> Email form connected to <a href="mailto:ethiopia@hrw.org" target="">ethiopia@hrw.org</a>.</p>
+                    </div> 
+                </article>
+            </div> 
+        </div>
+        
+        
+        <!--
+        ================
+         HELPERS
+        ================
+        -->  
+        <div class="gallery-viewer" id="galleryViewer"></div>
+
+        <div id="overlay" class="overlay">
+            <a id="closeOverlayBtn" class="overlay-close-btn" href="#">Close</a>
+            <div id="contentOverlay" class="overlay-content"></div>
         </div>
 
         <div class="preload" id="preload"></div>
