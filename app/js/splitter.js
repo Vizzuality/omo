@@ -1,7 +1,7 @@
 /*global define, Backbone*/
 'use strict';
 
-define(['kendo', 'MapView'], function(MapView) {
+define(['kendo'], function() {
 
     var SplitterView = Backbone.View.extend({
         el: '#splitter',
@@ -23,7 +23,6 @@ define(['kendo', 'MapView'], function(MapView) {
             });
         },
         show: function () {
-            console.log('show splitter');
             this.$el.removeClass('invisible');
         },
         hide: function () {

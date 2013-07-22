@@ -1,4 +1,4 @@
-/*global Backbone, window, $, define */
+/*global Backbone, window, define */
 
 define(['jquery', 'reveal'], function ($, Reveal) {
     'use strict';
@@ -30,8 +30,10 @@ define(['jquery', 'reveal'], function ($, Reveal) {
                 self.onRevealChange(e);
             }
 
-            function onSlideReady() {
+            function onSlideReady(e) {
+                console.log('ready');
                 self.setBtnEvents();
+                self.onRevealChange(e);
                 Backbone.Mediator.publish('preload:stop');
             }
 
@@ -54,15 +56,14 @@ define(['jquery', 'reveal'], function ($, Reveal) {
                 this.$el.removeClass('disable-mouse');
                 Backbone.Mediator.publish('map:hide');
             }
-            
-            switch (this.current.data('state')){
-               case 'map1':
-               Backbone.Mediator.publish('vis:change', 'http://hrw.cartodb.com/api/v2/viz/964ea6f8-ee0d-11e2-a7a6-3085a9a9563c/viz.json');                  
-               break;
-               case 'map2':
-               Backbone.Mediator.publish('vis:change', 'http://hrw.cartodb.com/api/v2/viz/b85b30b8-ee1c-11e2-8244-3085a9a9563c/viz.json');                  
-               break;
-                
+
+            switch (this.current.data('state')) {
+            case 'map1':
+                Backbone.Mediator.publish('vis:change', 'http://hrw.cartodb.com/api/v2/viz/964ea6f8-ee0d-11e2-a7a6-3085a9a9563c/viz.json');
+                break;
+            case 'map2':
+                Backbone.Mediator.publish('vis:change', 'http://hrw.cartodb.com/api/v2/viz/b85b30b8-ee1c-11e2-8244-3085a9a9563c/viz.json');
+                break;
             }
         },
         setBtnEvents: function () {
@@ -85,8 +86,11 @@ define(['jquery', 'reveal'], function ($, Reveal) {
 
             self = this;
 
-            $('#laketurkana').on('mouseover', function(){Backbone.Mediator.publish('feature:show', 'laketurkana');});
-            $('#laketurkana').on('mouseout', function(){Backbone.Mediator.publish('feature:hide', 'laketurkana');});
+            $('#laketurkana').on('mouseover', function () {
+                Backbone.Mediator.publish('feature:show', 'laketurkana');
+            }).on('mouseout', function () {
+                Backbone.Mediator.publish('feature:hide', 'laketurkana');
+            });
         },
 
         checkIframe: function () {

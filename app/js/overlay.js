@@ -25,12 +25,10 @@ define([], function () {
             this.render(contentHtml);
             this.$el.fadeIn('fast');
 
-            console.log(this);
-
             $(this.$el.find('.gallery')).gallery();
         },
         close: function (e) {
-            e.preventDefault()
+            e.preventDefault();
             this.$el.fadeOut('fast');
             this.content.empty();
         },
