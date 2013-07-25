@@ -22,7 +22,8 @@ define(['jquery'], function ($) {
             attributionControl: false
         },
         polygons: {
-            laketurkana: 'geojson/laketurkana.json'
+            laketurkana: 'geojson/laketurkana.json',
+            nationalparks: 'geojson/nationalparks.json'
         },
         geolayers: {
             laketurkana: null
@@ -32,7 +33,9 @@ define(['jquery'], function ($) {
             'map:hide': 'hide',
             'feature:show': 'featureShow',
             'feature:hide': 'featureHide',
-            'vis:change': 'setVis'
+            'vis:change': 'setVis',
+            'map:zoom' : 'setMapZoom',
+            'map:setView' :'setMapView'
         },
         initialize: function () {
             this.createMap();
@@ -79,7 +82,21 @@ define(['jquery'], function ($) {
                     self.geolayers.laketurkana = new L.GeoJSON(data, {
                         style: lakeStyle
                     });
-                    self.map.addLayer(self.geolayers.laketurkana);
+                    self.map.addLayer(self.geolayers.laketurkana);                    
+                });
+                
+                $.getJSON(self.polygons.nationalparks, function (data) {
+                    var parkStyle = {
+                        'fill': 'none',
+                        'weight': 5,
+                        'opacity': 0,
+                        'stroke': 'green',
+                        'stroke-width': 8
+                    };
+                    self.geolayers.nationalparks = new L.GeoJSON(data, {
+                        style: parkStyle
+                    });
+                    self.map.addLayer(self.geolayers.nationalparks);                    
                 });
             }
         },
@@ -103,6 +120,15 @@ define(['jquery'], function ($) {
         featureHide: function (feature) {
             console.log('hide ' + feature);
             this.geolayers[feature].resetStyle(this.geolayers[feature]);
+        },
+        setMapZoom: function (zoom) {
+                var self = this;
+             self.map.setZoom(zoom);
+        },
+        setMapView: function (lat,lon,zoom) {
+             var self = this;
+             self.map.setView([lat, lon],zoom);
+             
         },
         setVis: function (vis) {
             var self = this,

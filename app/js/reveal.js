@@ -44,7 +44,7 @@ define(['jquery', 'reveal'], function ($, Reveal) {
         onRevealChange: function (e) {
             this.current = $(e.currentSlide);
 
-            if (this.current.data('state') === 'map1' || this.current.data('state') === 'map2' || this.current.data('state') === 'map3') {
+            if (this.current.data('state') === 'map1' || this.current.data('state') === 'map2' || this.current.data('state') === 'map3' || this.current.data('state') === 'map4') {
                 this.$el.addClass('disable-mouse');
                 Backbone.Mediator.publish('splitter:hide');
                 Backbone.Mediator.publish('map:show');
@@ -60,9 +60,13 @@ define(['jquery', 'reveal'], function ($, Reveal) {
             switch (this.current.data('state')) {
             case 'map1':
                 Backbone.Mediator.publish('vis:change', 'http://hrw.cartodb.com/api/v2/viz/964ea6f8-ee0d-11e2-a7a6-3085a9a9563c/viz.json');
+               // Backbone.Mediator.publish('map:zoom', 5);
+                 Backbone.Mediator.publish('map:setView', 5.2037, 35.8106, 4);
                 break;
             case 'map2':
                 Backbone.Mediator.publish('vis:change', 'http://hrw.cartodb.com/api/v2/viz/b85b30b8-ee1c-11e2-8244-3085a9a9563c/viz.json');
+                //Backbone.Mediator.publish('map:zoom', 9);
+                Backbone.Mediator.publish('map:setView', 5.2037, 35.8106, 8);
                 break;
             }
         },
@@ -91,6 +95,17 @@ define(['jquery', 'reveal'], function ($, Reveal) {
             }).on('mouseout', function () {
                 Backbone.Mediator.publish('feature:hide', 'laketurkana');
             });
+            
+            $('#nationalparks').on('mouseover', function () {
+                Backbone.Mediator.publish('feature:show', 'nationalparks');
+            }).on('mouseout', function () {
+                Backbone.Mediator.publish('feature:hide', 'nationalparks');
+            });
+            
+            $('#ethiopia').on('mouseover', function () {
+                Backbone.Mediator.publish('map:setView', 5.2037, 35.8106, 9);
+            });
+            
         },
 
         checkIframe: function () {
