@@ -66,7 +66,7 @@ define(['jquery'], function ($) {
                 L.control.zoom({
                     position: 'topright'
                 }).addTo(this.map);
-                cartoLayer=cartodb.createLayer(this.map, 'http://hrw.cartodb.com/api/v2/viz/df4bbd86-ee1d-11e2-a56d-3085a9a9563c/viz.json');
+                cartoLayer=cartodb.createLayer(this.map, 'http://hrw.cartodb.com/api/v2/viz/15aa9b8e-f86b-11e2-8305-3085a9a9563c/viz.json');
                 cartoLayer.on('done', function (layer) {
                     self.map.addLayer(layer);
                     self.cartodbLayer = layer;
