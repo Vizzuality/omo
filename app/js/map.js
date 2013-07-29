@@ -39,7 +39,8 @@ define(['jquery'], function ($) {
             'feature:hide': 'featureHide',
             'vis:change': 'setVis',
             'map:zoom' : 'setMapZoom',
-            'map:setView' :'setMapView'
+            'map:setView' :'setMapView',
+            'map:follow' : 'followMasterMap'
         },
         initialize: function () {
             this.createMap();
@@ -47,27 +48,46 @@ define(['jquery'], function ($) {
             this.$el = $('#' + this.id);
         },
         createMap: function () {
-            var self = this,
-                cartodbLayer;
+            var self = this,cartoLayer;
 
-            this.map = L.map(this.id, this.options);
-
-            L.control.zoom({
-                position: 'topright'
-            }).addTo(this.map);
-            if (this.id === 'mapRight') {
-                cartodbLayer = cartodb.createLayer(this.map, 'http://hrw.cartodb.com/api/v2/viz/df4bbd86-ee1d-11e2-a56d-3085a9a9563c/viz.json');
+            if (this.id === 'mapLeft') {
+                this.map= L.map(this.id, this.options);
+                cartoLayer=cartodb.createLayer(this.map, 'http://hrw.cartodb.com/api/v2/viz/964ea6f8-ee0d-11e2-a7a6-3085a9a9563c/viz.json');
+                cartoLayer.on('done', function (layer) {
+                    self.map.addLayer(layer);
+                    self.cartodbLayer = layer;
+                    $('.cartodb-logo').css('display', 'none');              
+                });
+            
+                
+            }else if (this.id === 'mapRight') {
+                
+                this.map= L.map(this.id, this.options);
+                L.control.zoom({
+                    position: 'topright'
+                }).addTo(this.map);
+                cartoLayer=cartodb.createLayer(this.map, 'http://hrw.cartodb.com/api/v2/viz/df4bbd86-ee1d-11e2-a56d-3085a9a9563c/viz.json');
+                cartoLayer.on('done', function (layer) {
+                    self.map.addLayer(layer);
+                    self.cartodbLayer = layer;
+                    $('.cartodb-logo').css('display', 'none');              
+                });
+                self.map.on('move', function(e){console.log(e.target.getZoom()+'---'+e.target.getCenter());Backbone.Mediator.publish('map:follow',e.target.getCenter(),e.target.getZoom()); });
+                
             } else {
-                cartodbLayer = cartodb.createLayer(this.map, 'http://hrw.cartodb.com/api/v2/viz/964ea6f8-ee0d-11e2-a7a6-3085a9a9563c/viz.json');
+                this.map = L.map(this.id, this.options);
+                L.control.zoom({
+                    position: 'topright'
+                }).addTo(this.map);
+                cartoLayer=cartodb.createLayer(this.map, 'http://hrw.cartodb.com/api/v2/viz/964ea6f8-ee0d-11e2-a7a6-3085a9a9563c/viz.json');
+                cartoLayer.on('done', function (layer) {
+                    self.map.addLayer(layer);
+                    self.cartodbLayer = layer;
+                    $('.cartodb-logo').css('display', 'none');              
+                });
             }
 
-            cartodbLayer.on('done', function (layer) {
-                self.map.addLayer(layer);
-
-                $('.cartodb-logo').css('display', 'none');
-                
-
-            });
+            
 
         },
         addMapEffects: function () {
@@ -187,14 +207,19 @@ define(['jquery'], function ($) {
              self.map.setView([lat, lon],zoom);
              
         },
+        followMasterMap: function (latlon,zoom){
+            if (this.id === 'mapLeft') this.map.setView(latlon,zoom);
+        },
         setVis: function (vis) {
-            var self = this,
-                cartodbLayer;
+            var self = this, cartoLayer;
             if (this.id === 'map') {
-                cartodbLayer = cartodb.createLayer(this.map, vis);
-                cartodbLayer.on('done', function (layer) {
+                console.log(self.map.getPanes().tilePane);
+                self.map.removeLayer(self.cartodbLayer);
+                cartoLayer = cartodb.createLayer(this.map, vis);
+                cartoLayer.on('done', function (layer) {
 
                     self.map.addLayer(layer); 
+                    self.cartodbLayer =layer;
                      $('.cartodb-logo').css('display', 'none');
 
                 });
