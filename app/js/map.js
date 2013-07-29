@@ -23,7 +23,11 @@ define(['jquery'], function ($) {
         },
         polygons: {
             laketurkana: 'geojson/laketurkana.json',
-            nationalparks: 'geojson/nationalparks.json'
+            nationalparks: 'geojson/nationalparks.json',
+            gibe3: null,
+            sugarblocks: 'geojson/sugarblocks.json',
+            privatefarms: 'geojson/privatefarms.json',
+            irrigation: 'geojson/irrigation.json'
         },
         geolayers: {
             laketurkana: null
@@ -73,11 +77,10 @@ define(['jquery'], function ($) {
             if (this.id === 'map') {
                 $.getJSON(self.polygons.laketurkana, function (data) {
                     var lakeStyle = {
-                        'fill': 'none',
-                        'weight': 5,
-                        'opacity': 0,
-                        'stroke': 'blue',
-                        'stroke-width': 8
+                        'color': 'blue',
+                        'opacity':0,
+                        'fillOpacity': 0,
+                        'fillColor': 'blue'
                     };
                     self.geolayers.laketurkana = new L.GeoJSON(data, {
                         style: lakeStyle
@@ -87,17 +90,65 @@ define(['jquery'], function ($) {
                 
                 $.getJSON(self.polygons.nationalparks, function (data) {
                     var parkStyle = {
-                        'fill': 'none',
-                        'weight': 5,
-                        'opacity': 0,
-                        'stroke': 'green',
-                        'stroke-width': 8
+                        'color': 'green',
+                        'opacity':0,
+                        'fillOpacity': 0,
+                        'fillColor': 'green'
                     };
                     self.geolayers.nationalparks = new L.GeoJSON(data, {
                         style: parkStyle
                     });
                     self.map.addLayer(self.geolayers.nationalparks);                    
                 });
+                $.getJSON(self.polygons.sugarblocks, function (data) {
+                    var sugarStyle = {
+                        'color': 'green',
+                        'opacity':0,
+                        'fillOpacity': 0,
+                        'fillColor': 'green'
+                      
+                    };
+                    self.geolayers.sugarblocks = new L.GeoJSON(data, {
+                        style: sugarStyle
+                    });
+                    self.map.addLayer(self.geolayers.sugarblocks);                    
+                });
+                
+                $.getJSON(self.polygons.privatefarms, function (data) {
+                    var farmStyle = {
+                        'color': 'orange',
+                        'opacity':0,
+                        'fillOpacity': 0,
+                        'fillColor': 'orange'
+                      
+                    };
+                    self.geolayers.privatefarms = new L.GeoJSON(data, {
+                        style: farmStyle
+                    });
+                    self.map.addLayer(self.geolayers.privatefarms);                    
+                });
+                
+                $.getJSON(self.polygons.irrigation, function (data) {
+                    var iStyle = {
+                        'color': 'red',
+                        'opacity':0,
+                        'fillOpacity': 0,
+                        'fillColor': 'red'
+                      
+                    };
+                    self.geolayers.irrigation = new L.GeoJSON(data, {
+                        style: iStyle
+                    });
+                    self.map.addLayer(self.geolayers.irrigation);                    
+                });
+                
+                self.geolayers.gibe3 = L.circle([ 6.84715651, 37.30191447], 5000, {
+                    color: 'red',
+                    opacity:0,
+                    fillColor: '#f03',
+                    fillOpacity: 0
+                });
+                self.map.addLayer(self.geolayers.gibe3); 
             }
         },
         show: function () {
@@ -112,14 +163,20 @@ define(['jquery'], function ($) {
         },
         featureShow: function (feature) {
             this.geolayers[feature].setStyle({
-                opacity: 1
+                opacity: 0.5,
+                fillOpacity: 0.7
             });
-            this.map.fitBounds(this.geolayers[feature].getBounds());
+            if (feature!='gibe3') this.map.fitBounds(this.geolayers[feature].getBounds());
 
         },
         featureHide: function (feature) {
             console.log('hide ' + feature);
-            this.geolayers[feature].resetStyle(this.geolayers[feature]);
+            //this.geolayers[feature].resetStyle(this.geolayers[feature]);
+            
+            this.geolayers[feature].setStyle({
+                opacity: 0,
+                fillOpacity: 0
+            });
         },
         setMapZoom: function (zoom) {
                 var self = this;

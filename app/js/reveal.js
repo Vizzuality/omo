@@ -68,6 +68,16 @@ define(['jquery', 'reveal'], function ($, Reveal) {
                 //Backbone.Mediator.publish('map:zoom', 9);
                 Backbone.Mediator.publish('map:setView', 5.2037, 35.8106, 8);
                 break;
+            case 'map3':
+                Backbone.Mediator.publish('vis:change', 'http://hrw.cartodb.com/api/v2/viz/df4bbd86-ee1d-11e2-a56d-3085a9a9563c/viz.json');
+                
+                    //Backbone.Mediator.publish('map:zoom', 9);
+                Backbone.Mediator.publish('map:setView', 5.2037, 35.8106, 8);
+                break;
+                
+                
+                
+                
             }
         },
         setBtnEvents: function () {
@@ -105,7 +115,31 @@ define(['jquery', 'reveal'], function ($, Reveal) {
             $('#ethiopia').on('mouseover', function () {
                 Backbone.Mediator.publish('map:setView', 5.2037, 35.8106, 9);
             });
+        
+            $('#gibe3').on('mouseover', function () {
+                Backbone.Mediator.publish('map:setView', 6.84715651, 37.3019, 7);
+                Backbone.Mediator.publish('feature:show', 'gibe3');
+            }).on('mouseout', function () {
+                Backbone.Mediator.publish('feature:hide', 'gibe3');
+            });
             
+            $('#sugarblocks').on('mouseover', function () {
+                Backbone.Mediator.publish('feature:show', 'sugarblocks');
+            }).on('mouseout', function () {
+                Backbone.Mediator.publish('feature:hide', 'sugarblocks');
+            });
+            
+            $('#privatefarms').on('mouseover', function () {
+                Backbone.Mediator.publish('feature:show', 'privatefarms');
+            }).on('mouseout', function () {
+                Backbone.Mediator.publish('feature:hide', 'privatefarms');
+            });
+            
+            $('#irrigation').on('mouseover', function () {
+                Backbone.Mediator.publish('feature:show', 'irrigation');
+            }).on('mouseout', function () {
+                Backbone.Mediator.publish('feature:hide', 'irrigation');
+            });
         },
 
         checkIframe: function () {
