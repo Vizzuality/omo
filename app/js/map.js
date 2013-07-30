@@ -72,7 +72,7 @@ define(['jquery'], function ($) {
                     self.cartodbLayer = layer;
                     $('.cartodb-logo').css('display', 'none');              
                 });
-                self.map.on('move', function(e){console.log(e.target.getZoom()+'---'+e.target.getCenter());Backbone.Mediator.publish('map:follow',e.target.getCenter(),e.target.getZoom()); });
+                self.map.on('move', function(e){Backbone.Mediator.publish('map:follow',e.target.getCenter(),e.target.getZoom()); });
                 
             } else {
                 this.map = L.map(this.id, this.options);
