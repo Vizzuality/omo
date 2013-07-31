@@ -48,7 +48,7 @@ define(['jquery', 'reveal'], function ($, Reveal) {
                 this.$el.addClass('disable-mouse');
                 Backbone.Mediator.publish('splitter:hide');
                 Backbone.Mediator.publish('map:show');
-            } else if (this.current.data('state') === 'splitter') {
+            } else if (this.current.data('state') === 'splitter1' || this.current.data('state') === 'splitter2' || this.current.data('state') === 'splitter3') {
                 this.$el.addClass('disable-mouse');
                 Backbone.Mediator.publish('map:hide');
                 Backbone.Mediator.publish('splitter:show');
