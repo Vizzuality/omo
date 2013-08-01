@@ -52,6 +52,9 @@ define(['jquery'], function ($) {
 
             if (this.id === 'mapLeft') {
                 this.map= L.map(this.id, this.options);
+                 L.tileLayer('http://com.vizzuality.omo.s3.amazonaws.com/basemaps/2010/{z}/{x}/{y}.png', {
+                    attribution: 'tODO'
+                }).addTo(this.map);
                 cartoLayer=cartodb.createLayer(this.map, 'http://hrw.cartodb.com/api/v2/viz/ce602812-f9b3-11e2-9967-3085a9a9563c/viz.json');
                 cartoLayer.on('done', function (layer) {
                     self.map.addLayer(layer);
@@ -59,6 +62,8 @@ define(['jquery'], function ($) {
                     $('.cartodb-logo').css('display', 'none');              
                 });
             
+                
+  
                 
             }else if (this.id === 'mapRight') {
                 
@@ -73,6 +78,7 @@ define(['jquery'], function ($) {
                     $('.cartodb-logo').css('display', 'none');              
                 });
                 self.map.on('move', function(e){Backbone.Mediator.publish('map:follow',e.target.getCenter(),e.target.getZoom()); });
+                self.map.setZoom(16);
                 
             } else {
                 this.map = L.map(this.id, this.options);

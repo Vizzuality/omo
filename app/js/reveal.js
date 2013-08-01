@@ -61,7 +61,7 @@ define(['jquery', 'reveal'], function ($, Reveal) {
             case 'map1':
                 Backbone.Mediator.publish('vis:change', 'http://hrw.cartodb.com/api/v2/viz/964ea6f8-ee0d-11e2-a7a6-3085a9a9563c/viz.json');
                // Backbone.Mediator.publish('map:zoom', 5);
-                 Backbone.Mediator.publish('map:setView', 5.2037, 35.8106, 4);
+                 Backbone.Mediator.publish('map:setView', 5.2037, 23.1106, 4);
                 break;
             case 'map2':
                 Backbone.Mediator.publish('vis:change', 'http://hrw.cartodb.com/api/v2/viz/b85b30b8-ee1c-11e2-8244-3085a9a9563c/viz.json');
@@ -73,6 +73,12 @@ define(['jquery', 'reveal'], function ($, Reveal) {
                 
                     //Backbone.Mediator.publish('map:zoom', 9);
                 Backbone.Mediator.publish('map:setView', 5.2037, 35.8106, 8);
+                break;
+            case 'splitter1':
+                //Backbone.Mediator.publish('vis:change', 'http://hrw.cartodb.com/api/v2/viz/df4bbd86-ee1d-11e2-a56d-3085a9a9563c/viz.json');
+                
+                    //Backbone.Mediator.publish('map:zoom', 9);
+                Backbone.Mediator.publish('map:setView', 6.1733, 35.9659, 13);
                 break;
                 
                 
