@@ -52,13 +52,13 @@ define(['jquery'], function ($) {
 
             if (this.id === 'mapLeft') {
                 this.map= L.map(this.id, this.options);
-                var baseCartoLayer=cartodb.createLayer(this.map, 'http://hrw.cartodb.com/api/v2/viz/27f40324-fdb7-11e2-a933-3085a9a9563c/viz.json');
-                baseCartoLayer.on('done', function (layer) {
-                    layer.setZIndex(0);
-                    self.map.addLayer(layer);
-                    self.cartodbLayer = layer;
-                    $('.cartodb-logo').css('display', 'none');              
-                });
+//                var baseCartoLayer=cartodb.createLayer(this.map, 'http://hrw.cartodb.com/api/v2/viz/27f40324-fdb7-11e2-a933-3085a9a9563c/viz.json');
+//                baseCartoLayer.on('done', function (layer) {
+//                    layer.setZIndex(0);
+//                    self.map.addLayer(layer);
+//                    self.cartodbLayer = layer;
+//                    $('.cartodb-logo').css('display', 'none');              
+//                });
                 L.tileLayer('http://com.vizzuality.omo.s3.amazonaws.com/basemaps/slide61/l3_omo_sugarblock_2010/{z}/{x}/{y}.png', {
                     attribution: 'tODO', tms: true, zIndex: 10000
                 }).addTo(this.map);
@@ -80,13 +80,13 @@ define(['jquery'], function ($) {
                     position: 'topright'
                 }).addTo(this.map);
                 
-                var baseCartoLayer=cartodb.createLayer(this.map, 'http://hrw.cartodb.com/api/v2/viz/27f40324-fdb7-11e2-a933-3085a9a9563c/viz.json');
-                baseCartoLayer.on('done', function (layer) {
-                    layer.setZIndex(0);
-                    self.map.addLayer(layer);
-                    self.cartodbLayer = layer;
-                    $('.cartodb-logo').css('display', 'none');              
-                });
+//                var baseCartoLayer=cartodb.createLayer(this.map, 'http://hrw.cartodb.com/api/v2/viz/27f40324-fdb7-11e2-a933-3085a9a9563c/viz.json');
+//                baseCartoLayer.on('done', function (layer) {
+//                    layer.setZIndex(0);
+//                    self.map.addLayer(layer);
+//                    self.cartodbLayer = layer;
+//                    $('.cartodb-logo').css('display', 'none');              
+//                });
                // baseCartoLayer.setZIndex(0);
         
 //                L.tileLayer('http://com.vizzuality.omo.s3.amazonaws.com/basemaps/regional/{z}/{x}/{y}.png', {
@@ -107,17 +107,18 @@ define(['jquery'], function ($) {
                 self.map.on('move', function(e){Backbone.Mediator.publish('map:follow',e.target.getCenter(),e.target.getZoom());console.log(e.target.getCenter()+'-'+e.target.getZoom()) });
                 self.map.setZoom(16);
                 
-            } else {
+            } else if (this.id === 'map') {
                 this.map = L.map(this.id, this.options);
                 L.control.zoom({
                     position: 'topright'
                 }).addTo(this.map);
-                cartoLayer=cartodb.createLayer(this.map, 'http://hrw.cartodb.com/api/v2/viz/964ea6f8-ee0d-11e2-a7a6-3085a9a9563c/viz.json');
-                cartoLayer.on('done', function (layer) {
-                    self.map.addLayer(layer);
-                    self.cartodbLayer = layer;
-                    $('.cartodb-logo').css('display', 'none');              
-                });
+//                cartoLayer=cartodb.createLayer(this.map, 'http://hrw.cartodb.com/api/v2/viz/964ea6f8-ee0d-11e2-a7a6-3085a9a9563c/viz.json');
+//                cartoLayer.on('done', function (layer) {
+//                  //  if(self.cartodbLayer)self.map.removeLayer(self.cartodbLayer);
+//                    self.map.addLayer(layer);
+//                    self.cartodbLayer = layer;
+//                    $('.cartodb-logo').css('display', 'none');              
+//                });
             }
 
             
@@ -246,13 +247,17 @@ define(['jquery'], function ($) {
         setVis: function (vis) {
             var self = this, cartoLayer;
             if (this.id === 'map') {
-                console.log(self.map.getPanes().tilePane);
-                self.map.removeLayer(self.cartodbLayer);
+                if(self.cartodbLayer)console.log('removed: '+self.cartodbLayer._leaflet_id);
+                if(self.cartodbLayer)self.map.removeLayer(self.cartodbLayer);
+                //self.map.removeLayers();
+                
                 cartoLayer = cartodb.createLayer(this.map, vis);
                 cartoLayer.on('done', function (layer) {
 
                     self.map.addLayer(layer); 
                     self.cartodbLayer =layer;
+                    console.log('added: '+self.cartodbLayer._leaflet_id);
+                    //console.log(self.map);
                      $('.cartodb-logo').css('display', 'none');
 
                 });

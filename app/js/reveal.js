@@ -43,7 +43,7 @@ define(['jquery', 'reveal'], function ($, Reveal) {
         },
         onRevealChange: function (e) {
             this.current = $(e.currentSlide);
-
+            console.log(this.current.data('state'));
             if (this.current.data('state') === 'map1' || this.current.data('state') === 'map2' || this.current.data('state') === 'map3' || this.current.data('state') === 'map4') {
                 this.$el.addClass('disable-mouse');
                 Backbone.Mediator.publish('splitter:hide');
