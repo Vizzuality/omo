@@ -78,7 +78,7 @@ define(['jquery', 'reveal'], function ($, Reveal) {
                 //Backbone.Mediator.publish('vis:change', 'http://hrw.cartodb.com/api/v2/viz/df4bbd86-ee1d-11e2-a56d-3085a9a9563c/viz.json');
                 
                     //Backbone.Mediator.publish('map:zoom', 9);
-                Backbone.Mediator.publish('map:setView', 6.1733, 35.9659, 13);
+                Backbone.Mediator.publish('map:setView', 6.30165, 36.04897, 13);
                 break;
                 
                 
