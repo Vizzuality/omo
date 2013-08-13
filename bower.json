@@ -9,10 +9,13 @@
   ],
   "dependencies": {
     "requirejs": "~2.1.6",
-    "jquery": "~2.0.2",
+    "jquery": "1.9.1",
     "normalize-css": "~2.1.2",
     "Backbone-Mediator": "latest",
     "requirejs-domready": "~2.0.1",
-    "kendo-ui": "~2013.1.319"
+    "kendo-ui": "*"
+  },
+  "resolutions": {
+    "jquery": "1.9.1"
   }
 }
