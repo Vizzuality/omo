@@ -32,13 +32,12 @@ define([], function () {
             this.$el.fadeOut('fast');
             this.content.empty();
         },
-         setBtnEvents: function () {
+        setBtnEvents: function () {
             var self, btn;
 
             self = this;
 
             function onClickBtn(e) {
-                console.log('overlay');
                 btn = $(e.target);
                 if (btn.data('overlay') === true) {
                     self.open(btn.attr('href'));

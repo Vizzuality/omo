@@ -9,8 +9,8 @@
         <link rel="icon" type="image/x-icon" href="favicon.ico">
         
         <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.css">
-        <link rel="stylesheet" href="vendor/kendo/styles/kendo.common.min.css">
-        <link rel="stylesheet" href="vendor/kendo/styles/kendo.default.min.css">
+        <link rel="stylesheet" href="vendor/kendo-ui/styles/kendo.common.min.css">
+        <link rel="stylesheet" href="vendor/kendo-ui/styles/kendo.default.min.css">
         <link rel="stylesheet" href="lib/reveal.js/css/reveal.css">
         <link rel="stylesheet" href="css/main.css">
     </head>
@@ -59,7 +59,7 @@
                         <div class="reveal-article-content">
                             <h2>Lower Omo Valley</h2>
                             <p>The Lower Omo Valley in southern Ethiopia is one of the most culturally and biologically diverse places on Earth. Approximately 200,000 indigenous people live in the Lower Omo Valley.</p>
-							<p>The Omo River flows south into Kenya’s Lake Turkana. <a href="#" id="laketurkana">Lake Turkana</a> is the world’s largest desert lake and around 300,000 people live along its shores. The Omo and Turkana watershed is home to <a href="#" id="nationalparks">three national parks</a>, and two <a href="http://whc.unesco.org/en/about/" target="_blank">World Heritage sites</a>.</p>
+							<p>The Omo River flows south into Kenya’s Lake Turkana. <a href="#" class="disable" id="laketurkana">Lake Turkana</a> is the world’s largest desert lake and around 300,000 people live along its shores. The Omo and Turkana watershed is home to <a href="#" class="disable" id="nationalparks">three national parks</a>, and two <a href="http://whc.unesco.org/en/about/" target="_blank">World Heritage sites</a>.</p>
 							<p>The Lower Omo Valley is also one of the most remote and underdeveloped regions of Ethiopia. But that is set to change</p>
                             <footer class="clearfix">
                                 <a href="#gallery2" id="ethiopia" data-overlay="false" class="reveal-btn">Zoom into the Valley</a>
@@ -91,16 +91,15 @@
                             <p>Plans include:</p>
                             <ul>
                                 <li><a href="#callout4a" data-overlay="true" id="gibe3">Africa’s tallest dam-Gibe III</a></li>
-                                <li><a href="#" id="sugarblocks">2000 square kilometers of state run irrigated sugar plantations</a></li>
-                                <li><a href="#" id="privatefarms">2000 square kilometers of private commercial agriculture</a></li>
-                                <li><a href="#" id="irrigation">200km of irrigation canals</a></li>
-                                <li>various roads, bridges, and sugar processing factories and <a href="#" data-overlay="true">oil exploration</a></li>
+                                <li><a href="#" class="disable" id="sugarblocks">2000 square kilometers of state run irrigated sugar plantations</a></li>
+                                <li><a href="#" class="disable" id="privatefarms">2000 square kilometers of private commercial agriculture</a></li>
+                                <li><a href="#" class="disable" id="irrigation">200km of irrigation canals</a></li>
+                                <li>various roads, bridges, and sugar processing factories and oil exploration</li>
                             </ul>
                             <p><a href="#callout4" data-overlay="true">Click here for further information</a></p>
                             <footer class="clearfix">
-                                    <a href="#callout4b" data-overlay="true" class="reveal-btn">Who is financing these developments?</a>
-                                </footer>
-                        
+                                <a href="#callout4b" data-overlay="true" class="reveal-btn">Who is financing these developments?</a>
+                            </footer>                        
                         </div>                        
                     </article>
                     
@@ -113,7 +112,7 @@
                             <div class="reveal-article-cell">
                                 <h2>Ethiopia’s sugar industry</h2>
                                 <div class="columns">
-                                    <p>Ethiopia produces 300,000 tons of sugar a year. With new sugar plantations in the Omo valley, the country aims to increase annual production to more than 2.25 million tons  (GTP reference/callout). This increase will be used to offset domestic sugar supply shortfalls, for ethanol production, and for export to <a href="#callout5" data-overlay="true">sugar hungry markets</a>.</p>
+                                    <p>Ethiopia produces 300,000 tons of sugar a year. With new sugar plantations in the Omo valley, the country aims to increase annual production to more than 2.25 million tons. This increase will be used to offset domestic sugar supply shortfalls, for ethanol production, and for export to sugar hungry markets. Exports of sugar and various biofuels have become very lucrative under the EU’s Everything but Arms treaty (EBA) which gives preferential trading terms to LDC nations such as Ethiopia.</p>
                                 </div>
                                 <footer class="clearfix">
                                     <a href="#quote5" data-overlay="true" class="reveal-btn quote">Abay Tsehaye words</a>
@@ -141,14 +140,17 @@
                 <section data-background="url(img/assets/bg-article-left.png) repeat-y center" data-state="map4">
                     <article class="reveal-left-article">
                         <div class="reveal-article-content">
-                                <h2>Diversion dam</h2>
-                                
-                                    <p>The construction of a diversion dam caught everyone by surprise when it was constructed in May 2012 to divert the waters of the Omo River into the sugar plantation’s irrigation canals. Not built to proper engineering standards the earthen structure broke twice before successfully diverting waters into the irrigation canals. Rising floodwaters behind this dam resulted in the flooding of Bodi farms, huts, and granaries. 220 households were displaced and their sorghum crops <a href="#gallery7" data-overlay="true">lost for the year</a>. Impacts were also felt downstream where water levels dropped dramatically.</p>
-                              
-                                <footer class="clearfix">
-                                    <a href="#gallery7" data-overlay="true" class="reveal-btn">Live the story</a>
-                                </footer>
-                            
+                            <h2>Diversion dam</h2>
+                            <p>The construction of a diversion dam caught everyone by surprise when it was constructed in May 2012 to divert the waters of the Omo River into the sugar plantation’s irrigation canals. Not built to proper engineering standards the earthen structure broke twice before successfully diverting waters into the irrigation canals. Rising floodwaters behind this dam resulted in the flooding of Bodi farms, huts, and granaries. 220 households were displaced and their sorghum crops <a href="#gallery7" data-overlay="true">lost for the year</a>. Impacts were also felt downstream where water levels dropped dramatically.</p>
+                            <ul>
+                                <li><a href="#quote7a" data-overlay="true">Man from Magolony</a></li>
+                                <li><a href="#quote7b" data-overlay="true">Man from Gura</a></li>
+                                <li><a href="#quote7c" data-overlay="true">Fear for the future quote (November 2012)</a></li>
+                                <li><a href="#quote7d" data-overlay="true">Kwegu fisherman</a></li>
+                            </ul>
+                            <footer class="clearfix">
+                                <a href="#gallery7" data-overlay="true" class="reveal-btn">Live the story</a>
+                            </footer>
                         </div>                       
                     </article>
                 </section>
@@ -181,20 +183,17 @@
                         <div class="reveal-article-content">
                             <div class="reveal-article-cell">
                                 <h2>Government and donor response</h2>
-                                <div >
-                                    
-                                    
+                                <div>
                                     <p>
-                                    <ul>
-                                        <li><a href="#callout9a" data-overlay="true">What the Government of Ethiopia is saying</a></li>
-                                        <li><a href="#callout9b" data-overlay="true">What others are saying </a></li>
-                                        <li><a href="#callout9c" data-overlay="true">What is the response of international donors to events in Lower Omo?  </a></li>
-                                        <li><a href="#callout9d" data-overlay="true">What is the response of the Government of Kenya?   </a></li>
-                                        <li><a href="#callout9e" data-overlay="true">From donors assesment   </a></li>
-                                        <li><a href="#callout9f" data-overlay="true">UK parliamentary enquiry    </a></li>
-                                    </ul>
-</p>
-                                   
+                                        <ul>
+                                            <li><a href="#callout9a" data-overlay="true">What the Government of Ethiopia is saying</a></li>
+                                            <li><a href="#callout9b" data-overlay="true">What others are saying </a></li>
+                                            <li><a href="#callout9c" data-overlay="true">What is the response of international donors to events in Lower Omo?  </a></li>
+                                            <li><a href="#callout9d" data-overlay="true">What is the response of the Government of Kenya?   </a></li>
+                                            <li><a href="#callout9e" data-overlay="true">From donors assesment   </a></li>
+                                            <li><a href="#callout9f" data-overlay="true">UK parliamentary enquiry    </a></li>
+                                        </ul>
+                                    </p>
                                 </div>
                             </div>
                         </div>                       
@@ -209,7 +208,7 @@
                                 <h2>Current impact</h2>
                                 <div class="columns">
                                     <p>1200 Bodi living in the area of the reservoir have lost their homes and have had their livelihoods decimated as the floodwaters engulfed their farms and their grain stores. Some have moved into the new settlement villages whilst others are moving around with their cattle in the areas that have yet to be cleared for <a href="#quote10b" data-overlay="true">sugar</a>.</p>
-                                    <p>Mursi and Kwegu families have also had their farms, <a href="#callout10" data-overlay="true">beehives</a>, and grain stores cleared. {link to Mursi Red Frog video}</p>
+                                    <p>Mursi and Kwegu families have also had their farms, <a href="#callout10" data-overlay="true">beehives</a>, and grain stores cleared.</p>
                                     <p>The impacts are already devastating for those impacted individuals, but what is of particular concern is what will happen when the development scheme is fully implemented…</p>
                                 </div>
                                 <footer class="clearfix">
@@ -230,7 +229,7 @@
                                     <p>Under the current proposals, all 200,000 of the Lower Omo’s indigenous people will be displaced from their ancestral lands as they will be relocated to permanent villages to provide labor to the <a href="#quote11" data-overlay="true">sugar plantations</a>.</p>
                                     <p>They are concerned about the end of their way of life and the potential for inter-tribal conflict brought about by increased competition over what scarce grazing land will be left.</p>
                                     <p>They have fears about how they will feed themselves and the social problems that will result from the rapid transition from agro-pastoralism to farm laborer.</p>
-                                    <p>There are also concerns in Kenya where <a href="#callout11a" data-overlay="true">projections</a> show that water levels in Kenya’s Lake Turkana will drop by up to 22 meters, having devastating consequences on the livelihoods of the 300,000 Kenyans who rely on the lake for their <a href="#callout11b" data-overlay="true">livelihoods</a>.</p>
+                                    <p>There are also concerns in Kenya where projections show that water levels in Kenya’s Lake Turkana will drop by up to 22 meters, having devastating consequences on the livelihoods of the 300,000 Kenyans who rely on the lake for their livelihoods.</p>
                                 </div>
                             </div>
                         </div>
@@ -246,12 +245,12 @@
                                 <div class="columns">
                                     <p>For more information links:</p>
                                     <ul>
-                                        <li>“What Will Happen if Hunger Comes?” report</li>
-                                        <li>HRW Ethiopia page</li>
+                                        <li><a href="http://www.hrw.org/reports/2012/06/18/what-will-happen-if-hunger-comes-0">“What Will Happen if Hunger Comes?” report</a></li>
+                                        <li><a href="http://www.hrw.org/africa/ethiopia">HRW Ethiopia page</a></li>
                                         <li>Other NGOs? IR, SI, FoLT?</li>
-                                        <li>Mursi.org</li>
+                                        <li><a href="http://www.mursi.org">Mursi.org</a></li>
                                     </ul>
-                                    <p>To contact Human Rights Watch’s Ethiopia team please click here </p>
+                                    <p><a href="#callout12" data-overlay="true">To contact Human Rights Watch’s Ethiopia team please click here </a></p>
                                 </div>
                                 <footer class="clearfix">
                                     <a href="#quote1" data-overlay="true" class="reveal-btn">Live the story</a>
@@ -393,7 +392,7 @@
                             <li>Industrial Commercial Bank of China (ICBC)-$500 million financing of Gibe III  in August 2010</li>
                             <li>China Development Bank -- $500 million in loans to build two sugar refineries, one of which is in the Omo Valley.</li>
                             <li>Indian Exim Bank- $640 million in financing for Ethiopia’s sugar industry. One of the conditions is that 75% of this loan must be used for goods and services imported from India.</li> 
-                            <li>World Bank $684 million in financing approved in July 2012 for a transmission line that would export power from Ethiopia to Kenya.</li>
+                            <li><a href="http://www.worldbank.org/projects/P126579/regional-eastern-africa-power-pool-project-apl1?lang=en">World Bank $684 million in financing approved in July 2012 for a transmission line that would export power from Ethiopia to Kenya.</a></li>
                         </ul>
                     </div> 
                 </article>
@@ -411,7 +410,7 @@
                 </blockquote>
             </div>
         </div>
-
+<!--remove-->
         <div class="hidden" id="callout5">
             <div class="overlay-wrap">
                 <article class="overlay-article">
@@ -522,7 +521,7 @@
                 <article class="overlay-article">
                     <h2>Villagization elsewhere in Ethiopia</h2>
                     <div class="columns">                        
-                        <p>The villagization program is part of a nationwide effort to move 1.5 million pastoralists and agro-pastoralists into permanent villages. Human Rights Watch has documented various abuses related to the villagization program in Gambella region . In Gambella, indigenous populations were being moved into new villages by force. Locations were dry and not suitable for food production and services were not being provided as promised. Those who questioned the program were being arbitrarily detained, threatened, or beaten. Due to the negative impacts of this program, several thousand individuals have fled to neighboring South Sudan and Kenya. See Waiting Here for Death for more information{link http://www.hrw.org/node/104284}Villagization is also underway in Afar, Somali, and Benishangul-Gumuz regions.</p>
+                        <p>The villagization program is part of a nationwide effort to move 1.5 million pastoralists and agro-pastoralists into permanent villages. Human Rights Watch has documented various abuses related to the villagization program in Gambella region . In Gambella, indigenous populations were being moved into new villages by force. Locations were dry and not suitable for food production and services were not being provided as promised. Those who questioned the program were being arbitrarily detained, threatened, or beaten. Due to the negative impacts of this program, several thousand individuals have fled to neighboring South Sudan and Kenya. See Waiting Here for Death for <a href="http://www.hrw.org/node/104284" target="_blank">more information</a> Villagization is also underway in Afar, Somali, and Benishangul-Gumuz regions.</p>
                     </div> 
                 </article>
             </div> 
@@ -534,7 +533,7 @@
                     <h2>Who funds villagization?</h2>
                     <div class="columns">                        
                         <p>The Protection of Basic Services (PBS) program contributes to the salaries of the woreda government employees who are implementing the villagization program. PBS provides services in the areas of education, health care, water, roads and agriculture - the exact five areas of the villagization program. The program pays salaries of teachers, health care extension workers and others who have, in some villages, been asked to mobilize people to move to the new villages. In September 2012 the third round of the PBS program was approved. The major contributors to PBS are the World Bank, DFID, the African Development Bank, and the European Commission.</p>
-                        <p>According to the villagization plan {link} for Lower Omo, the Pastoral Development Community Development Project (PCDP) is also expected to fund certain services in the new village. PCDP is funded by the World Bank and the African Development Bank. The third round of financing for PCDP is to be considered by the World Bank in September 2013. {link to PCDP III page}</p>
+                        <p>According to the villagization plan for Lower Omo, the Pastoral Development Community Development Project (PCDP) is also expected to fund certain services in the new village. PCDP is funded by the World Bank and the African Development Bank. The third round of financing for PCDP is to be considered by the World Bank in September 2013.</p>
                     </div> 
                 </article>
             </div> 
@@ -547,14 +546,10 @@
                 <article class="overlay-article">
                      <h2>Government response</h2>
                     <div class="columns">
-                       
-                        <p>The people and the local governments are very happy. We have not seen any conflict between investors and the community.” "
-Source: http://www.bloomberg.com/apps/news?pid=20601116&sid=aJEzbUEy4xTE
-
-“…no citizen will be forced out of his/her location without their individual will for resettlement or any other purpose.
-The project site and the selected locations in South Omo are not anywhere close to human dwellings to disturb inhabitant’s lifestyle. It is an area which is hardly inhabited at all except at a widely scattered pattern,” December 2011, Shiferaw email to HRW{link to HRW letter and response}
-</p>
-<p>“The government’s principle is persuasion not forceful eviction. That is why two years were spent to persuade the community about the benefits of the villagization programme. Not a single person was forcefully evicted.” Molloka Wubneh, Chief Administrator of South Omo Zone. From Walta http://www.waltainfo.com/index.php?option=com_content&view=article&id=5578:south-omo-zone-holds-nations-sweet-promise&catid=82:articles-and-features-&Itemid=402</p>
+                        <p>“The people and the local governments are very happy. We have not seen any conflict between investors and the community.” "<br> Source: <a href="http://www.bloomberg.com/apps/news?pid=20601116&sid=aJEzbUEy4xTE" target="_blank">Bloomberg</a></p>
+                        <p>“…no citizen will be forced out of his/her location without their individual will for resettlement or any other purpose.
+The project site and the selected locations in South Omo are not anywhere close to human dwellings to disturb inhabitant’s lifestyle. It is an area which is hardly inhabited at all except at a widely scattered pattern,” December 2011, Shiferaw email to HRW.</p>
+<p>“The government’s principle is persuasion not forceful eviction. That is why two years were spent to persuade the community about the benefits of the villagization programme. Not a single person was forcefully evicted.” Molloka Wubneh, Chief Administrator of South Omo Zone.<br> From Walta: <a href="http://www.waltainfo.com/index.php?option=com_content&view=article&id=5578:south-omo-zone-holds-nations-sweet-promise&catid=82:articles-and-features-&Itemid=402" target="_blank">Waltainfo</a></p>
                     </div> 
                 </article>
             </div> 
@@ -563,12 +558,9 @@ The project site and the selected locations in South Omo are not anywhere close 
             <div class="overlay-wrap">
                 <article class="overlay-article">
                     <h2>What others are saying</h2>
-                    <div class="columns">
-                        
-                        <p>UN World Heritage Committee:  In June 2011, the UN World Heritage Committee called on the Ethiopian government to "immediately halt all construction" on Gibe III, and encouraged the Chinese financiers "to put on hold their financial support" until the Committee’s next annual meeting in June 2012. Neither the Ethiopian government nor ICBC heeded this call. {link to recommendation}}
-
-UN Committee on the Elimination of all Forms of Racial Discrimination: in September 2011 they requested “information on measures taken to conduct an independent assessment of the negative effects of the construction of the [Gibe III and sugar plantation] projects on the livelihood of the Lower Omo peoples and measures taken to consult them in an effective and appropriate manner.” No response has been received.
-</p>
+                    <div class="columns">                        
+                        <p>UN World Heritage Committee:  In June 2011, the UN World Heritage Committee called on the Ethiopian government to "immediately halt all construction" on Gibe III, and encouraged the Chinese financiers "to put on hold their financial support" until the Committee’s next annual meeting in June 2012. Neither the Ethiopian government nor ICBC heeded this call.</p>
+                        <p>UN Committee on the Elimination of all Forms of Racial Discrimination: in September 2011 they requested “information on measures taken to conduct an independent assessment of the negative effects of the construction of the [Gibe III and sugar plantation] projects on the livelihood of the Lower Omo peoples and measures taken to consult them in an effective and appropriate manner.” No response has been received.</p>
                     </div> 
                 </article>
             </div> 
@@ -578,10 +570,8 @@ UN Committee on the Elimination of all Forms of Racial Discrimination: in Septem
             <div class="overlay-wrap">
                 <article class="overlay-article">
                     <h2>What is the response of international donors to events in Lower Omo? </h2>
-                    <div class="columns">
-                        
-                        <p>Largely silence. The donors have undertaken at least two assessments into events in lower Omo. Transcripts made available from the first assessment {link to document} reveal that communities shared with DFID/USAID the human rights abuses they had been subjected to. The UK minister for international development, in response to a parliamentary enquiry, stated they were “not able to substantiate the allegations of human rights violation it received during its visit to South Omo in January 2012”{callout/link}.  It is not clear what steps have been taken, if any, to substantiate these allegations. No public information has been made available from the second assessment in November 2012.
-</p>
+                    <div class="columns">                        
+                        <p>Largely silence. The donors have undertaken at least two assessments into events in lower Omo. Transcripts made available from the first assessment reveal that communities shared with DFID/USAID the human rights abuses they had been subjected to. The UK minister for international development, in response to a parliamentary enquiry, stated they were “not able to substantiate the allegations of human rights violation it received during its visit to South Omo in January 2012”.  It is not clear what steps have been taken, if any, to substantiate these allegations. No public information has been made available from the second assessment in November 2012.</p>
                     </div> 
                 </article>
             </div> 
@@ -592,9 +582,7 @@ UN Committee on the Elimination of all Forms of Racial Discrimination: in Septem
                 <article class="overlay-article">
                     <h2>What is the response of the Government of Kenya? </h2>
                     <div class="columns">
-                        
-                        <p>In August 2011, the Kenyan parliament passed a resolution requiring suspension of dam construction pending further studies. In March 2012 it was announced that the Kenyan government signed an agreement with Ethiopia is purchase up to 400Mw of electricity annually from Ethiopia. The Kenyan government has since been silent on the issues in the Lower Omo Valley that could have a devastating impact on 300,000 Kenyan citizens.
-</p>
+                        <p>In August 2011, the Kenyan parliament passed a resolution requiring suspension of dam construction pending further studies. In March 2012 it was announced that the Kenyan government signed an agreement with Ethiopia is purchase up to 400Mw of electricity annually from Ethiopia. The Kenyan government has since been silent on the issues in the Lower Omo Valley that could have a devastating impact on 300,000 Kenyan citizens.</p>
                     </div> 
                 </article>
             </div> 
@@ -604,8 +592,7 @@ UN Committee on the Elimination of all Forms of Racial Discrimination: in Septem
             <div class="overlay-wrap">
                 <article class="overlay-article">
                     <h2>From donor assessment</h2>
-                    <div class="columns">
-                        
+                    <div class="columns">                        
                         <p>“In summary these allegations included:</p>
                         <ul>
                             <li>Registration and confiscation of weapons and munitions</li>
@@ -629,8 +616,7 @@ UN Committee on the Elimination of all Forms of Racial Discrimination: in Septem
             <div class="overlay-wrap">
                 <article class="overlay-article">
                     <h2>UK parliamentary enquiry </h2>
-                    <div class="columns">
-                        
+                    <div class="columns">                        
                         <p><strong>Martin Horwood</strong>: To ask the Secretary of State for International Development whether her Department found that human rights violations were occurring in South Omo in the Southern Nations, Nationalities and People's Region, Ethiopia during its recent mission to that area. [126709]</p>
                         <p><strong>Justine Greening</strong>: The Department for International Development was not able to substantiate the allegations of human rights violation it received during its visit to South Omo in January 2012, and will be returning to the area to examine these further.</p>
                     </div> 

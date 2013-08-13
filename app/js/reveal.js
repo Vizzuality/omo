@@ -5,6 +5,9 @@ define(['jquery', 'reveal'], function ($, Reveal) {
 
     var RevealView = Backbone.View.extend({
         el: '.reveal',
+        events: {
+            'click a.disable': 'disableClick'
+        },
         options: {
             width: '100%',
             height: '100%',
@@ -31,7 +34,6 @@ define(['jquery', 'reveal'], function ($, Reveal) {
             }
 
             function onSlideReady(e) {
-                console.log('ready');
                 self.setBtnEvents();
                 self.onRevealChange(e);
                 Backbone.Mediator.publish('preload:stop');
@@ -60,30 +62,19 @@ define(['jquery', 'reveal'], function ($, Reveal) {
             switch (this.current.data('state')) {
             case 'map1':
                 Backbone.Mediator.publish('vis:change', 'http://hrw.cartodb.com/api/v2/viz/964ea6f8-ee0d-11e2-a7a6-3085a9a9563c/viz.json');
-               // Backbone.Mediator.publish('map:zoom', 5);
-                 Backbone.Mediator.publish('map:setView', 5.2037, 23.1106, 4);
+                Backbone.Mediator.publish('map:setView', 5.2037, 23.1106, 4);
                 break;
             case 'map2':
                 Backbone.Mediator.publish('vis:change', 'http://hrw.cartodb.com/api/v2/viz/b85b30b8-ee1c-11e2-8244-3085a9a9563c/viz.json');
-                //Backbone.Mediator.publish('map:zoom', 9);
                 Backbone.Mediator.publish('map:setView', 5.2037, 35.8106, 8);
                 break;
             case 'map3':
                 Backbone.Mediator.publish('vis:change', 'http://hrw.cartodb.com/api/v2/viz/df4bbd86-ee1d-11e2-a56d-3085a9a9563c/viz.json');
-                
-                    //Backbone.Mediator.publish('map:zoom', 9);
                 Backbone.Mediator.publish('map:setView', 5.2037, 35.8106, 8);
                 break;
             case 'splitter1':
-                //Backbone.Mediator.publish('vis:change', 'http://hrw.cartodb.com/api/v2/viz/df4bbd86-ee1d-11e2-a56d-3085a9a9563c/viz.json');
-                
-                    //Backbone.Mediator.publish('map:zoom', 9);
-                Backbone.Mediator.publish('map:setView', 6.1733, 35.9659, 13);
+                Backbone.Mediator.publish('map:setView', 6.30165, 36.04897, 13);
                 break;
-                
-                
-                
-                
             }
         },
         setBtnEvents: function () {
@@ -147,7 +138,9 @@ define(['jquery', 'reveal'], function ($, Reveal) {
                 Backbone.Mediator.publish('feature:hide', 'irrigation');
             });
         },
-
+        disableClick: function(e) {
+            e.preventDefault();
+        },
         checkIframe: function () {
             if (this.iframe) {
                 this.logo.show();

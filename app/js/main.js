@@ -1,7 +1,5 @@
 /*global require*/
 
-var dependencies = ['jquery', 'gallery', 'reveal', 'MapView', 'RevealView', 'OverlayView', 'PreloadView', 'SplitterView', 'domReady', 'kendo'];
-
 require.config({
     baseUrl: '',
     paths: {
@@ -9,9 +7,11 @@ require.config({
         jquery: 'vendor/jquery/jquery',
         reveal: 'lib/reveal.js/js/reveal',
         gallery: 'lib/jquery/gallery',
-        kendo: 'vendor/kendo/js/kendo.web.min',
+        kendo: 'vendor/kendo-ui/js/kendo.web.min',
 
-        MapView: 'js/map',
+        MapView: 'js/maps/main',
+        MapLeftView: 'js/maps/left',
+        MapRightView: 'js/maps/right',
         RevealView: 'js/reveal',
         OverlayView: 'js/overlay',
         PreloadView: 'js/preload',
@@ -37,7 +37,9 @@ require.config({
     }
 });
 
-require(dependencies, function ($, gallery, Reveal, MapView, RevealView, OverlayView, PreloadView, SplitterView, domReady) {
+require([
+    'jquery', 'gallery', 'reveal', 'MapView', 'MapLeftView', 'MapRightView', 'RevealView', 'OverlayView', 'PreloadView', 'SplitterView', 'domReady', 'kendo'
+], function ($, gallery, Reveal, MapView, MapLeftView, MapRightView, RevealView, OverlayView, PreloadView, SplitterView, domReady) {
     'use strict';
 
     var app = {};
@@ -48,12 +50,8 @@ require(dependencies, function ($, gallery, Reveal, MapView, RevealView, Overlay
         app.revealView = new RevealView();
         app.splitterView = new SplitterView();
         app.mapView = new MapView();
-        app.mapLeftView = new MapView({
-            id: 'mapLeft'
-        });
-        app.mapRightView = new MapView({
-            id: 'mapRight'
-        });
+        app.mapLeftView = new MapLeftView();
+        app.mapRightView = new MapRightView();
         app.overlayView = new OverlayView();
 
     }
