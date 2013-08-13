@@ -109,7 +109,8 @@ define(['jquery', 'reveal'], function ($, Reveal) {
                 Backbone.Mediator.publish('feature:hide', 'nationalparks');
             });
             
-            $('#ethiopia').on('mouseover', function () {
+            $('#ethiopia').on('click', function (e) {
+                e.preventDefault();
                 Backbone.Mediator.publish('map:setView', 5.2037, 35.8106, 9);
             });
         
