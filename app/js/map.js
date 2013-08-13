@@ -51,10 +51,23 @@ define(['jquery'], function ($) {
                 cartoLayer;
 
             if (this.id === 'mapLeft') {
+<<<<<<< HEAD
                 this.map = L.map(this.id, this.options);
                 L.tileLayer('http://com.vizzuality.omo.s3.amazonaws.com/basemaps/regional/{z}/{x}/{y}.png', {
                     attribution: 'tODO',
                     tms: true
+=======
+                this.map= L.map(this.id, this.options);
+//                var baseCartoLayer=cartodb.createLayer(this.map, 'http://hrw.cartodb.com/api/v2/viz/27f40324-fdb7-11e2-a933-3085a9a9563c/viz.json');
+//                baseCartoLayer.on('done', function (layer) {
+//                    layer.setZIndex(0);
+//                    self.map.addLayer(layer);
+//                    self.cartodbLayer = layer;
+//                    $('.cartodb-logo').css('display', 'none');              
+//                });
+                L.tileLayer('http://com.vizzuality.omo.s3.amazonaws.com/basemaps/slide61/l3_omo_sugarblock_2010/{z}/{x}/{y}.png', {
+                    attribution: 'tODO', tms: true, zIndex: 10000
+>>>>>>> ced4b271259fcd508b8f44a7991b9cab196918f9
                 }).addTo(this.map);
                 L.tileLayer('http://com.vizzuality.omo.s3.amazonaws.com/basemaps/slide61/l3_omo_sugarblock_2010/{z}/{x}/{y}.png', {
                     attribution: 'tODO',
@@ -66,6 +79,7 @@ define(['jquery'], function ($) {
                     self.cartodbLayer = layer;
                     $('.cartodb-logo').css('display', 'none');
                 });
+<<<<<<< HEAD
 
             } else if (this.id === 'mapRight') {
 
@@ -86,6 +100,39 @@ define(['jquery'], function ($) {
                     zIndex: 10000
                 }).addTo(this.map);
                 cartoLayer = cartodb.createLayer(this.map, 'http://hrw.cartodb.com/api/v2/viz/ce602812-f9b3-11e2-9967-3085a9a9563c/viz.json');
+=======
+            
+                
+  
+                
+            }else if (this.id === 'mapRight') {
+                var customOptions=this.options;
+                customOptions.minZoom=12;
+                this.map= L.map(this.id, customOptions);
+                L.control.zoom({
+                    position: 'topright'
+                }).addTo(this.map);
+                
+//                var baseCartoLayer=cartodb.createLayer(this.map, 'http://hrw.cartodb.com/api/v2/viz/27f40324-fdb7-11e2-a933-3085a9a9563c/viz.json');
+//                baseCartoLayer.on('done', function (layer) {
+//                    layer.setZIndex(0);
+//                    self.map.addLayer(layer);
+//                    self.cartodbLayer = layer;
+//                    $('.cartodb-logo').css('display', 'none');              
+//                });
+               // baseCartoLayer.setZIndex(0);
+        
+//                L.tileLayer('http://com.vizzuality.omo.s3.amazonaws.com/basemaps/regional/{z}/{x}/{y}.png', {
+//                    attribution: 'tODO', tms: true
+//                }).addTo(this.map);
+                
+            
+                
+                L.tileLayer('http://com.vizzuality.omo.s3.amazonaws.com/basemaps/slide61/l3_omo_sugarblock_2013/{z}/{x}/{y}.png', {
+                    attribution: 'tODO', tms: true, zIndex: 10000
+                }).addTo(this.map);
+                cartoLayer=cartodb.createLayer(this.map, 'http://hrw.cartodb.com/api/v2/viz/ce602812-f9b3-11e2-9967-3085a9a9563c/viz.json');
+>>>>>>> ced4b271259fcd508b8f44a7991b9cab196918f9
                 cartoLayer.on('done', function (layer) {
                     self.map.addLayer(layer);
                     self.cartodbLayer = layer;
@@ -95,19 +142,36 @@ define(['jquery'], function ($) {
                     Backbone.Mediator.publish('map:follow', e.target.getCenter(), e.target.getZoom());
                     //console.log(e.target.getCenter() + '-' + e.target.getZoom())
                 });
+<<<<<<< HEAD
                 self.map.setZoom(16);
 
             } else {
+=======
+                self.map.on('move', function(e){Backbone.Mediator.publish('map:follow',e.target.getCenter(),e.target.getZoom());console.log(e.target.getCenter()+'-'+e.target.getZoom()) });
+                self.map.setZoom(16);
+                
+            } else if (this.id === 'map') {
+>>>>>>> ced4b271259fcd508b8f44a7991b9cab196918f9
                 this.map = L.map(this.id, this.options);
                 L.control.zoom({
                     position: 'topright'
                 }).addTo(this.map);
+<<<<<<< HEAD
                 cartoLayer = cartodb.createLayer(this.map, 'http://hrw.cartodb.com/api/v2/viz/964ea6f8-ee0d-11e2-a7a6-3085a9a9563c/viz.json');
                 cartoLayer.on('done', function (layer) {
                     self.map.addLayer(layer);
                     self.cartodbLayer = layer;
                     $('.cartodb-logo').css('display', 'none');
                 });
+=======
+//                cartoLayer=cartodb.createLayer(this.map, 'http://hrw.cartodb.com/api/v2/viz/964ea6f8-ee0d-11e2-a7a6-3085a9a9563c/viz.json');
+//                cartoLayer.on('done', function (layer) {
+//                  //  if(self.cartodbLayer)self.map.removeLayer(self.cartodbLayer);
+//                    self.map.addLayer(layer);
+//                    self.cartodbLayer = layer;
+//                    $('.cartodb-logo').css('display', 'none');              
+//                });
+>>>>>>> ced4b271259fcd508b8f44a7991b9cab196918f9
             }
 
         },
@@ -234,6 +298,7 @@ define(['jquery'], function ($) {
             var self = this,
                 cartoLayer;
             if (this.id === 'map') {
+<<<<<<< HEAD
                 //console.log(self.map.getPanes().tilePane);
                 if (this.map && this.cartodbLayer) {
                     this.map.removeLayer(this.cartodbLayer);
@@ -243,6 +308,21 @@ define(['jquery'], function ($) {
                     self.map.addLayer(layer);
                     self.cartodbLayer = layer;
                     $('.cartodb-logo').css('display', 'none');
+=======
+                if(self.cartodbLayer)console.log('removed: '+self.cartodbLayer._leaflet_id);
+                if(self.cartodbLayer)self.map.removeLayer(self.cartodbLayer);
+                //self.map.removeLayers();
+                
+                cartoLayer = cartodb.createLayer(this.map, vis);
+                cartoLayer.on('done', function (layer) {
+
+                    self.map.addLayer(layer); 
+                    self.cartodbLayer =layer;
+                    console.log('added: '+self.cartodbLayer._leaflet_id);
+                    //console.log(self.map);
+                     $('.cartodb-logo').css('display', 'none');
+
+>>>>>>> ced4b271259fcd508b8f44a7991b9cab196918f9
                 });
             }
         }

@@ -45,7 +45,7 @@ define(['jquery', 'reveal'], function ($, Reveal) {
         },
         onRevealChange: function (e) {
             this.current = $(e.currentSlide);
-
+            console.log(this.current.data('state'));
             if (this.current.data('state') === 'map1' || this.current.data('state') === 'map2' || this.current.data('state') === 'map3' || this.current.data('state') === 'map4') {
                 this.$el.addClass('disable-mouse');
                 Backbone.Mediator.publish('splitter:hide');
@@ -73,6 +73,12 @@ define(['jquery', 'reveal'], function ($, Reveal) {
                 Backbone.Mediator.publish('map:setView', 5.2037, 35.8106, 8);
                 break;
             case 'splitter1':
+<<<<<<< HEAD
+=======
+                //Backbone.Mediator.publish('vis:change', 'http://hrw.cartodb.com/api/v2/viz/df4bbd86-ee1d-11e2-a56d-3085a9a9563c/viz.json');
+                
+                    //Backbone.Mediator.publish('map:zoom', 9);
+>>>>>>> ced4b271259fcd508b8f44a7991b9cab196918f9
                 Backbone.Mediator.publish('map:setView', 6.30165, 36.04897, 13);
                 break;
             }
