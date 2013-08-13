@@ -1,0 +1,28 @@
+{
+  "name": "Backbone-Mediator",
+  "keywords": [
+    "backbone",
+    "pubsub",
+    "publish",
+    "subscribe",
+    "pub",
+    "sub",
+    "events",
+    "event"
+  ],
+  "main": [
+    "./backbone-mediator.js"
+  ],
+  "dependencies": {
+    "backbone": "*"
+  },
+  "homepage": "https://github.com/berdichev/Backbone-Mediator",
+  "_release": "2fa7e2a9df",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "2fa7e2a9df34c72810eacc6e85847a44639d056c"
+  },
+  "_source": "git://github.com/berdichev/Backbone-Mediator.git",
+  "_target": "*"
+}
