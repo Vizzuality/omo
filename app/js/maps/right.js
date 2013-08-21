@@ -48,7 +48,7 @@ define(['jquery'], function ($) {
             //                    attribution: 'tODO', tms: true
             //                }).addTo(this.map);
 
-            L.tileLayer('http://com.vizzuality.omo.s3.amazonaws.com/basemaps/slide61/l3_omo_sugarblock_2013/{z}/{x}/{y}.png', {
+            L.tileLayer('http://com.vizzuality.omo.s3.amazonaws.com/basemaps/after/{z}/{x}/{y}.png', {
                 attribution: 'tODO',
                 tms: true,
                 zIndex: 10000

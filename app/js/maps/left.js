@@ -39,12 +39,9 @@ define(['jquery'], function ($) {
 
             this.map = L.map(this.id, this.options);
 
-            L.tileLayer('http://com.vizzuality.omo.s3.amazonaws.com/basemaps/regional/{z}/{x}/{y}.png', {
-                attribution: 'tODO',
-                tms: true
-            }).addTo(this.map);
+            
 
-            L.tileLayer('http://com.vizzuality.omo.s3.amazonaws.com/basemaps/slide61/l3_omo_sugarblock_2010/{z}/{x}/{y}.png', {
+            L.tileLayer('http://com.vizzuality.omo.s3.amazonaws.com/basemaps/before/{z}/{x}/{y}.png', {
                 attribution: 'tODO',
                 tms: true
             }).addTo(this.map);
