@@ -73,7 +73,13 @@ define(['jquery', 'reveal'], function ($, Reveal) {
                 Backbone.Mediator.publish('map:setView', 5.2037, 35.8106, 8);
                 break;
             case 'splitter1':
-                Backbone.Mediator.publish('map:setView', 6.30165, 36.04897, 13);
+                Backbone.Mediator.publish('map:setView', 6.18783, 35.99507, 13);
+                break;
+            case 'splitter2':
+                Backbone.Mediator.publish('map:setView', 6.30165, 36.04897, 14);
+                break;
+            case 'splitter3':
+                Backbone.Mediator.publish('map:setView', 6.11628, 35.99192, 14);
                 break;
             }
         },
