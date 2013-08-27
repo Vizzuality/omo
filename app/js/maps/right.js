@@ -42,7 +42,7 @@ define(['jquery'], function ($) {
                 position: 'topright'
             }).addTo(this.map);
 
-            cartodb.createLayer(this.map, 'http://hrw.cartodb.com/api/v2/viz/27f40324-fdb7-11e2-a933-3085a9a9563c/viz.json').addTo(this.map);
+            //cartodb.createLayer(this.map, 'http://hrw.cartodb.com/api/v2/viz/27f40324-fdb7-11e2-a933-3085a9a9563c/viz.json').addTo(this.map);
 
             //                L.tileLayer('http://com.vizzuality.omo.s3.amazonaws.com/basemaps/regional/{z}/{x}/{y}.png', {
             //                    attribution: 'tODO', tms: true
@@ -50,10 +50,10 @@ define(['jquery'], function ($) {
 
             L.tileLayer('http://com.vizzuality.omo.s3.amazonaws.com/basemaps/after/{z}/{x}/{y}.png', {
                 attribution: 'tODO',
-                tms: true,
-                zIndex: 10000
+                tms: true
+               
             }).addTo(this.map);
-            cartoLayer = cartodb.createLayer(this.map, 'http://hrw.cartodb.com/api/v2/viz/ce602812-f9b3-11e2-9967-3085a9a9563c/viz.json');
+            cartoLayer = cartodb.createLayer(this.map, 'http://hrw.cartodb.com/api/v2/viz/2ea71fd4-0f01-11e3-b690-3085a9a9563c/viz.json');
             cartoLayer.on('done', function (layer) {
                 self.map.addLayer(layer);
                 self.cartodbLayer = layer;
