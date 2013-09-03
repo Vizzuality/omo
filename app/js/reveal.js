@@ -12,7 +12,7 @@ define(['jquery', 'reveal'], function ($, Reveal) {
             width: '100%',
             height: '100%',
             maxScale: 1.0,
-            rollingLinks: true,
+            rollingLinks: false,
             history: true,
             backgroundTransition: 'linear'
         },

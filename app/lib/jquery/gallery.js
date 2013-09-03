@@ -16,7 +16,7 @@
         $el = $(el);
         wrap = $el.find('.gallery-wrap');
         panels = $el.find('.gallery-panel');
-        viewer = $('#galleryViewer');
+        viewer = $el.find('.gallery-viewer');
 
         self = this;
         settings = $.extend(defaults, options);
@@ -45,7 +45,7 @@
         this.viewer = function (e) {
             var videoUrl = $(e.currentTarget).attr('href');
 
-            viewer.html('<iframe width="100%" height="100%" src="' + videoUrl + '" frameborder="0" allowfullscreen></iframe>')
+            viewer.html('<iframe width="100%" height="100%" src="' + videoUrl + '" type="text/html" frameborder="0" allowfullscreen></iframe>')
                 .show();
 
             e.preventDefault();
@@ -63,7 +63,7 @@
                 e.preventDefault();
             });
 
-            wrap.find('a').on('click', this.viewer);
+            panels.find('a[data-video="true"]').on('click', this.viewer);
 
             this.move();
 
