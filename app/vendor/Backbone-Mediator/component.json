@@ -1,11 +1,30 @@
 {
   "name": "Backbone-Mediator",
-  "version": "0.0.1",
-  "keywords": ["backbone", "pubsub", "publish", "subscribe", "pub", "sub", "events", "event"],
+  "version": "0.0.0",
+  "keywords": [
+    "backbone",
+    "pubsub",
+    "publish",
+    "subscribe",
+    "pub",
+    "sub",
+    "events",
+    "event"
+  ],
   "main": [
     "./backbone-mediator.js"
   ],
   "dependencies": {
     "backbone": "*"
+  },
+  "gitHead": "2fa7e2a9df34c72810eacc6e85847a44639d056c",
+  "readme": "# Backbone-Mediator\n\nBackbone plugin to add app-wide pub/sub.\n\n## API\n\n### subscribe(channel, subscription, context [, once])\n  *or shortcut sub()*\n  \n  Subscribe to a channel.\n\n    Backbone.Mediator.subscribe('view:loaded', this.callback, this);\n    \n    // or\n    \n    Backbone.Mediator.sub('view:loaded', this.callback, this);\n    \n    \n### subscribeOnce(channel, subscription, context)\n  \n  Subscribe to a channel **once**.\n  \n    // Will be called once only\n    Backbone.Mediator.subscribeOnce('view:loaded', this.callback, this);\n\n### publish(channel [, arg1][, argN])\n  *or shortcut pub()*\n\n  Execute all callbacks defined for a channel. Any addional argument will be tranfered to the callback.\n  \n    Backbone.Mediator.publish('view:loaded', 'myView');\n    \n    // or\n    \n    Backbone.Mediator.pub('view:loaded', 'myView');\n    \n## Convention-based subscriptions\n\nAdd a 'subscriptions' property to your view. The subscriptions property must be an hash as\n{channel:method}, where method\nis either a string representing a view method, or a function. The methods will be called with the \nview context.\n\n    var View = Backbone.View.extend({\n      subscriptions: {\n        'item:select': 'enable', // calls this.enable\n        'item:unselect': function(){...}\n      }\n    });\n    \nThe subscriptions are tied with the delegateEvents/undelegateEvents methods. Calling delegateEvents() automatically\nsets subscriptions and calling undelegateEvents() unsets them.",
+  "readmeFilename": "README.md",
+  "_id": "Backbone-Mediator@0.0.1",
+  "description": "Backbone plugin to add app-wide pub/sub.",
+  "commit": "2fa7e2a9df34c72810eacc6e85847a44639d056c",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/berdichev/Backbone-Mediator"
   }
 }

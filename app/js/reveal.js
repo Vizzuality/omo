@@ -66,11 +66,11 @@ define(['jquery', 'reveal'], function ($, Reveal) {
                 break;
             case 'map2':
                 Backbone.Mediator.publish('vis:change', 'http://hrw.cartodb.com/api/v2/viz/b85b30b8-ee1c-11e2-8244-3085a9a9563c/viz.json');
-                Backbone.Mediator.publish('map:setView', 5.2037, 35.8106, 8);
+                Backbone.Mediator.publish('map:setView', 5.2037, 35.8106, 9);
                 break;
             case 'map3':
                 Backbone.Mediator.publish('vis:change', 'http://hrw.cartodb.com/api/v2/viz/df4bbd86-ee1d-11e2-a56d-3085a9a9563c/viz.json');
-                Backbone.Mediator.publish('map:setView', 5.2037, 35.8106, 8);
+                Backbone.Mediator.publish('map:setView', 5.3837, 35.9106, 9);
                 break;
             case 'splitter1':
                 Backbone.Mediator.publish('map:setView', 6.18783, 35.99507, 13);
@@ -121,7 +121,7 @@ define(['jquery', 'reveal'], function ($, Reveal) {
             });
         
             $('#gibe3').on('mouseover', function () {
-                Backbone.Mediator.publish('map:setView', 6.84715651, 37.3019, 7);
+                //Backbone.Mediator.publish('map:setView', 6.84715651, 37.3019, 7);
                 Backbone.Mediator.publish('feature:show', 'gibe3');
             }).on('mouseout', function () {
                 Backbone.Mediator.publish('feature:hide', 'gibe3');
