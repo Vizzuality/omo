@@ -61,7 +61,6 @@ define(['jquery'], function ($) {
             cartoLayer.on('done', function (layer) {
                 self.cartodbLayer = layer;
                 self.map.addLayer(self.cartodbLayer);
-                $('.cartodb-logo').css('display', 'none');
             });
         },
         addMapEffects: function () {
@@ -149,7 +148,6 @@ define(['jquery'], function ($) {
             this.$el.addClass('invisible');
         },
         featureShow: function (feature) {
-            console.log(this.geolayers[feature]);
             this.geolayers[feature].setStyle({
                 opacity: 0.5,
                 fillOpacity: 0.7
@@ -173,16 +171,18 @@ define(['jquery'], function ($) {
         setVis: function (vis) {
             var self = this,
                 cartoLayer;
+
             if (this.map && this.cartodbLayer) {
+                this.cartodbLayer.off('featureClick');
                 this.map.removeLayer(this.cartodbLayer);
                 this.cartodbLayer = null;
+            
+                cartoLayer = cartodb.createLayer(this.map, vis);
+                cartoLayer.on('done', function (layer) {
+                    self.map.addLayer(layer);
+                    self.cartodbLayer = layer;
+                });
             }
-            cartoLayer = cartodb.createLayer(this.map, vis);
-            cartoLayer.on('done', function (layer) {
-                self.map.addLayer(layer);
-                self.cartodbLayer = layer;
-                $('.cartodb-logo').css('display', 'none');
-            });
         }
     });
 

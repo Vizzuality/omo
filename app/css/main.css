@@ -70,97 +70,37 @@ ul {padding-left: 20px;}
     z-index: 1002;
 }
 
+/* Full screen */
+.btn-full-screen, .btn-share {
+    background: url(../img/assets/sprite.png) no-repeat -68px 0;
+    display: none;
+    height: 33px;
+    position: absolute;
+    right: 0;
+    top: 20px;
+    width: 36px;
+    z-index: 1005;
+}
+.btn-full-screen:hover {background-position: -68px -132px;}
+.btn-share {
+    background: url(../img/assets/sprite.png) no-repeat -106px 0;
+    display: block;
+    right: 45px;
+    top: 20px;
+    width: 34px;
+}
+.iframe .btn-share {right: 20px; top: 26px;}
+.btn-share:hover {background-position: -106px -33px;}
+
 /* Reveal */
 .reveal {position: relative; z-index: 1001;}
-.reveal.iframe {height: 99.5%; margin-top: .5%;}
+.iframe .reveal {height: 99.5%; margin-top: .5%;}
 .reveal .slides {text-align: left;}
 
 .reveal h2 {font-size: 2.27272727em; font-weight: bold; margin-bottom: 20px;}
 
 .reveal .progress {position: absolute; background: #fff;}
 .reveal .progress span {background: #3355b3;}
-
-/*.reveal .roll {
-    display: inline-block;
-    line-height: 1.2;
-    overflow: hidden;
-
-    vertical-align: top;
-
-    -webkit-perspective: 400px;
-       -moz-perspective: 400px;
-        -ms-perspective: 400px;
-            perspective: 400px;
-
-    -webkit-perspective-origin: 50% 50%;
-       -moz-perspective-origin: 50% 50%;
-        -ms-perspective-origin: 50% 50%;
-            perspective-origin: 50% 50%;
-}
-.reveal .roll:hover {
-    background: none;
-    text-shadow: none;
-}
-.reveal .roll.reveal-btn:hover {
-    background-color: #3355B3;
-}
-.reveal .roll span {
-    display: block;
-    position: relative;
-    padding: 0 2px;
-
-    pointer-events: none;
-
-    -webkit-transition: none;
-       -moz-transition: none;
-        -ms-transition: none;
-            transition: none;
-
-    -webkit-transform-origin: 0% 0%;
-       -moz-transform-origin: 0% 0%;
-        -ms-transform-origin: 0 0;
-            transform-origin: 0 0;
-
-    -webkit-transform-style: none;
-       -moz-transform-style: none;
-        -ms-transform-style: none;
-            transform-style: none;
-
-    -webkit-backface-visibility: hidden;
-       -moz-backface-visibility: hidden;
-            backface-visibility: hidden;
-}
-.reveal .roll:hover span {
-    background: none;
-
-    -webkit-transform: none;
-       -moz-transform: none;
-        -ms-transform: none;
-            transform: none;
-}
-.reveal .roll span:after {
-    content: attr(data-title);
-
-    display: block;
-    position: absolute;
-    left: 0;
-    top: 0;
-    padding: 0 2px;
-
-    -webkit-backface-visibility: hidden;
-       -moz-backface-visibility: hidden;
-            backface-visibility: hidden;
-
-    -webkit-transform-origin: none;
-       -moz-transform-origin: none;
-        -ms-transform-origin: none;
-            transform-origin: none;
-
-    -webkit-transform: none;
-       -moz-transform: none;
-        -ms-transform: none;
-            transform: none;
-}*/
 
 .reveal .reveal-article-content {
 /*	font-size: 1.125em;*/
@@ -245,6 +185,7 @@ ul {padding-left: 20px;}
     top: .5%;
     height: 99.5%;
 }
+.cartodb-logo {display: none !important;}
 
 
 /* Leaflet */
@@ -262,7 +203,8 @@ ul {padding-left: 20px;}
     box-shadow: none;
 }
 .leaflet-bar-part {border-bottom: 0;}
-.leaflet-container .leaflet-control-zoom {margin-right: 20px; margin-top: 20px;}
+.leaflet-container .leaflet-control-zoom {margin-right: 90px; margin-top: 20px;}
+.iframe .leaflet-container .leaflet-control-zoom {margin-right: 65px;}
 .leaflet-control-zoom a {
     background: url(../img/assets/sprite.png) no-repeat;
     -webkit-border-radius: 0;
@@ -398,9 +340,8 @@ ul {padding-left: 20px;}
     position: absolute;
     top: 0;
     width: 100%;
+    z-index: 10005;
 }
-
-
 
 
 /* Buttons */

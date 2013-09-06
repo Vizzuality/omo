@@ -61,7 +61,7 @@ define(['jquery'], function ($) {
             });
             self.map.on('moveend', function (e) {
                 Backbone.Mediator.publish('map:follow', e.target.getCenter(), e.target.getZoom());
-                console.log(e.target.getCenter()+'-'+ e.target.getZoom());
+                //console.log(e.target.getCenter()+'-'+ e.target.getZoom());
             });
             //self.map.setZoom(16);
         },

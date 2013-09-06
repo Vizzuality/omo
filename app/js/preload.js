@@ -24,6 +24,7 @@ define([], function () {
             left: 'auto' // Left position relative to parent in px
         },
         subscriptions: {
+            'preload:start': 'start',
             'preload:stop': 'stop'
         },
         initialize: function () {

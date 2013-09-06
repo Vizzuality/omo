@@ -14,12 +14,15 @@ define(['jquery', 'reveal'], function ($, Reveal) {
             maxScale: 1.0,
             rollingLinks: false,
             history: true,
-            backgroundTransition: 'linear'
+            backgroundTransition: 'linear',
+            transition: 'linear'
         },
         initialize: function () {
-            this.iframe = window.self === window.top;
+            this.bodytag = $('body');
+            this.noiframe = window.self === window.top;
             this.reveal = Reveal;
             this.logo = $('#omoLogo');
+            this.fullbtn = $('.btn-full-screen');
 
             this.createReveal();
             this.checkIframe();
@@ -36,7 +39,9 @@ define(['jquery', 'reveal'], function ($, Reveal) {
             function onSlideReady(e) {
                 self.setBtnEvents();
                 self.onRevealChange(e);
-                Backbone.Mediator.publish('preload:stop');
+                setTimeout(function() {
+                    Backbone.Mediator.publish('preload:stop');
+                }, 1000);
             }
 
             reveal.initialize(this.options);
@@ -46,17 +51,17 @@ define(['jquery', 'reveal'], function ($, Reveal) {
         onRevealChange: function (e) {
             this.current = $(e.currentSlide);
 
+            Backbone.Mediator.publish('map:hide');
+            Backbone.Mediator.publish('splitter:hide');
+
             if (this.current.data('state') === 'map1' || this.current.data('state') === 'map2' || this.current.data('state') === 'map3' || this.current.data('state') === 'map4') {
                 this.$el.addClass('disable-mouse');
-                Backbone.Mediator.publish('splitter:hide');
                 Backbone.Mediator.publish('map:show');
             } else if (this.current.data('state') === 'splitter1' || this.current.data('state') === 'splitter2' || this.current.data('state') === 'splitter3') {
                 this.$el.addClass('disable-mouse');
-                Backbone.Mediator.publish('map:hide');
                 Backbone.Mediator.publish('splitter:show');
             } else {
                 this.$el.removeClass('disable-mouse');
-                Backbone.Mediator.publish('map:hide');
             }
 
             switch (this.current.data('state')) {
@@ -149,12 +154,14 @@ define(['jquery', 'reveal'], function ($, Reveal) {
             e.preventDefault();
         },
         checkIframe: function () {
-            if (this.iframe) {
+            if (this.noiframe) {
+                this.fullbtn.hide();
                 this.logo.show();
-                this.$el.addClass('iframe');
+                this.bodytag.addClass('iframe');
             } else {
+                this.fullbtn.show();
                 this.logo.hide();
-                this.$el.removeClass('iframe');
+                this.bodytag.removeClass('iframe');
             }
         }
     });

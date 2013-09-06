@@ -11,12 +11,14 @@
     };
 
     Gallery = function (el, options) {
-        var $el, settings, methods, counter, self, panels, wrap, galleryWidth, viewer, len, left;
+        var $el, settings, methods, counter, self, panels, wrap, galleryWidth, contentViewer, closeViewer, viewer, len, left;
 
         $el = $(el);
         wrap = $el.find('.gallery-wrap');
         panels = $el.find('.gallery-panel');
-        viewer = $el.find('.gallery-viewer');
+        viewer = $('#galleryViewer');
+        contentViewer = $('#contentGallery');
+        closeViewer = $('#closeGalleryViewer');
 
         self = this;
         settings = $.extend(defaults, options);
@@ -45,13 +47,18 @@
         this.viewer = function (e) {
             var videoUrl = $(e.currentTarget).attr('href');
 
-            viewer.html('<iframe width="100%" height="100%" src="' + videoUrl + '" type="text/html" frameborder="0" allowfullscreen></iframe>')
-                .show();
+            contentViewer.html('<iframe width="100%" height="100%" src="' + videoUrl + '" type="text/html" frameborder="0" allowfullscreen></iframe>');
+            viewer.show();
 
             e.preventDefault();
         };
 
         this.initialize = function () {
+
+            closeViewer.on('click', function(e) {
+                e.preventDefault();
+                viewer.hide();
+            });
 
             $el.find('.gallery-next').on('click', function (e) {
                 self.move('next');

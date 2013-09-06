@@ -1,7 +1,6 @@
-/*global define, Backbone*/
-'use strict';
-
+/*global $, define, Backbone*/
 define(['kendo'], function() {
+    'use strict';
 
     var SplitterView = Backbone.View.extend({
         el: '#splitter',
@@ -14,10 +13,12 @@ define(['kendo'], function() {
 
             this.$el.kendoSplitter({
                 panes: [{
-                    collapsible: true,
+                    collapsible: false,
+                    min: '50%',
                     size: '50%'
                 }, {
-                    collapsible: true,
+                    collapsible: false,
+                    min: '50%',
                     size: '50%'
                 }]
             });
