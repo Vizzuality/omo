@@ -75,7 +75,7 @@ define(['jquery', 'reveal'], function ($, Reveal) {
                 break;
             case 'map3':
                 Backbone.Mediator.publish('vis:change', 'http://hrw.cartodb.com/api/v2/viz/df4bbd86-ee1d-11e2-a56d-3085a9a9563c/viz.json');
-                Backbone.Mediator.publish('map:setView', 5.3837, 35.9106, 9);
+                Backbone.Mediator.publish('map:setView', 5.3837, 35.1, 9);
                 break;
             case 'splitter1':
                 Backbone.Mediator.publish('map:setView', 6.18783, 35.99507, 13);

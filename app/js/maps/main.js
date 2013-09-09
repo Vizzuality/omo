@@ -138,6 +138,9 @@ define(['jquery'], function ($) {
                 fillColor: '#f03',
                 fillOpacity: 0
             });
+            
+            self.geolayers.gibe3Popup= L.popup().setLatLng([5.6,35.95]).setContent('<p><strong>Gibe 3 Dam</strong><br />about 200 km upstream.</p>');
+    
 
             self.map.addLayer(self.geolayers.gibe3);
         },
@@ -152,8 +155,10 @@ define(['jquery'], function ($) {
                 opacity: 0.5,
                 fillOpacity: 0.7
             });
-            if (feature !== 'gibe3') {
+            if (feature === 'gibe3') {
                 //this.map.fitBounds(this.geolayers[feature].getBounds());
+                this.geolayers.gibe3Popup.openOn(this.map);
+
             }
         },
         featureHide: function (feature) {
