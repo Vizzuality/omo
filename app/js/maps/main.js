@@ -18,7 +18,8 @@ define(['jquery'], function ($) {
             center: [5.24, 35],
             zoom: 9,
             zoomControl: false,
-            attributionControl: false
+            attributionControl: false,
+            closePopupOnClick: true
         },
         polygons: {
             laketurkana: 'geojson/laketurkana.json',
@@ -139,7 +140,7 @@ define(['jquery'], function ($) {
                 fillOpacity: 0
             });
             
-            self.geolayers.gibe3Popup= L.popup().setLatLng([5.6,35.95]).setContent('<p><strong>Gibe 3 Dam</strong><br />about 200 km upstream.</p>');
+            self.geolayers.gibe3Popup= L.popup().setLatLng([5.6,35.95]).setContent('<p><strong>Gibe III Dam</strong><br />about 200 km upstream.</p>');
     
 
             self.map.addLayer(self.geolayers.gibe3);
@@ -166,6 +167,7 @@ define(['jquery'], function ($) {
                 opacity: 0,
                 fillOpacity: 0
             });
+            if (feature === 'gibe3') this.map.closePopup(this.geolayers.gibe3Popup);
         },
         setMapZoom: function (zoom) {
             this.map.setZoom(zoom);

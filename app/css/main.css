@@ -485,3 +485,11 @@ ul {padding-left: 20px;}
 .hidden {display: none;}
 .invisible {opacity: 0; z-index : -100;}
 
+
+/*no interaction in columns bug*/
+.reveal .slides>section, .reveal .slides>section>section {
+	-webkit-transform-style: flat;
+	   -moz-transform-style: flat;
+	    -ms-transform-style: flat;
+	        transform-style: flat;
+}
