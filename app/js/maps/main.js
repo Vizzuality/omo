@@ -16,7 +16,8 @@ define(['jquery'], function ($) {
         visjson: 'http://hrw.cartodb.com/api/v2/viz/b85b30b8-ee1c-11e2-8244-3085a9a9563c/viz.json',
         options: {
             center: [5.24, 35],
-            zoom: 9,
+            zoom: 4,
+            minZoom: 4,
             zoomControl: false,
             attributionControl: false,
             closePopupOnClick: true
@@ -27,10 +28,12 @@ define(['jquery'], function ($) {
             gibe3: null,
             sugarblocks: 'geojson/sugarblocks.json',
             privatefarms: 'geojson/privatefarms.json',
+            omonew: 'geojson/omonew.json',
             irrigation: 'geojson/irrigation.json'
         },
         geolayers: {
-            laketurkana: null
+            laketurkana: null,
+            factories: new Array()
         },
         subscriptions: {
             'map:show': 'show',
@@ -118,8 +121,53 @@ define(['jquery'], function ($) {
                     style: farmStyle
                 });
                 self.map.addLayer(self.geolayers.privatefarms);
+                
             });
+            
+            
+             
+            $.getJSON('http://hrw.cartodb.com/api/v2/sql?format=GeoJSON&q=SELECT%20the_geom%20FROM%20l2_eth_geo_gov_omo_factories', function(data){
+               // console.log(data);
+               var factoryStyle = {
+                    'color': 'orange',
+                    'opacity': 1,
+                    'fillOpacity': 1,
+                    'fillColor': 'orange'
 
+                };
+                $.each(data.features, function(key, val) {
+                  
+//                self.geolayers.factories[key] = new L.GeoJSON(val.geometry, {
+//                    style: farmStyle
+//                });
+                //self.geolayers.factories[key] = new L.Marker(val.geometry.coordinates);
+                
+                self.geolayers.factories[key] = L.circle([val.geometry.coordinates[1],val.geometry.coordinates[0]], 5000, {
+                            color: 'red',
+                            opacity: 0,
+                            fillColor: '#f03',
+                            fillOpacity: 0
+                        });
+                
+                self.map.addLayer(self.geolayers.factories[key]);
+                //console.log(self.geolayers.factories[key]);
+               });
+            }); 
+            
+            $.getJSON(self.polygons.omonew, function (data) {
+                var farmStyle = {
+                    'color': 'orange',
+                    'opacity': 0,
+                    'fillOpacity': 0,
+                    'fillColor': 'orange'
+
+                };
+                self.geolayers.omonew = new L.GeoJSON(data, {
+                    style: farmStyle
+                });
+                self.map.addLayer(self.geolayers.omonew);
+                
+            });
             $.getJSON(self.polygons.irrigation, function (data) {
                 var iStyle = {
                     'color': 'red',
@@ -152,6 +200,19 @@ define(['jquery'], function ($) {
             this.$el.addClass('invisible');
         },
         featureShow: function (feature) {
+            //console.log(typeof this.geolayers[feature]);
+            if (feature === 'factories') {
+                var self=this;
+                $.each(self.geolayers[feature], function(key, val) {
+                    self.geolayers[feature][key].setStyle({
+                        opacity: 0.5,
+                        fillOpacity: 0.2
+                    });
+                });
+                return;
+
+            }
+            
             this.geolayers[feature].setStyle({
                 opacity: 0.5,
                 fillOpacity: 0.7
@@ -163,6 +224,17 @@ define(['jquery'], function ($) {
             }
         },
         featureHide: function (feature) {
+            if (feature === 'factories') {
+                        var self=this;
+                        $.each(self.geolayers[feature], function(key, val) {
+                            self.geolayers[feature][key].setStyle({
+                                opacity: 0,
+                                fillOpacity: 0
+                            });
+                        });
+                        return;
+
+                    }
             this.geolayers[feature].setStyle({
                 opacity: 0,
                 fillOpacity: 0

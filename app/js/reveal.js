@@ -49,6 +49,8 @@ define(['jquery', 'reveal'], function ($, Reveal) {
             reveal.addEventListener('ready', onSlideReady);
         },
         onRevealChange: function (e) {
+            $('.date-left').hide();
+            $('.date-right').hide();
             this.current = $(e.currentSlide);
 
             Backbone.Mediator.publish('map:hide');
@@ -58,6 +60,8 @@ define(['jquery', 'reveal'], function ($, Reveal) {
                 this.$el.addClass('disable-mouse');
                 Backbone.Mediator.publish('map:show');
             } else if (this.current.data('state') === 'splitter1' || this.current.data('state') === 'splitter2' || this.current.data('state') === 'splitter3') {
+                $('.date-left').show();
+                $('.date-right').show();
                 this.$el.addClass('disable-mouse');
                 Backbone.Mediator.publish('splitter:show');
             } else {
@@ -140,14 +144,22 @@ define(['jquery', 'reveal'], function ($, Reveal) {
             
             $('#privatefarms').on('mouseover', function () {
                 Backbone.Mediator.publish('feature:show', 'privatefarms');
+                Backbone.Mediator.publish('feature:show', 'omonew');
             }).on('mouseout', function () {
                 Backbone.Mediator.publish('feature:hide', 'privatefarms');
+                Backbone.Mediator.publish('feature:hide', 'omonew');
             });
             
             $('#irrigation').on('mouseover', function () {
                 Backbone.Mediator.publish('feature:show', 'irrigation');
             }).on('mouseout', function () {
                 Backbone.Mediator.publish('feature:hide', 'irrigation');
+            });
+            
+            $('#factories').on('mouseover', function () {
+                Backbone.Mediator.publish('feature:show', 'factories');
+            }).on('mouseout', function () {
+                Backbone.Mediator.publish('feature:hide', 'factories');
             });
         },
         disableClick: function(e) {
