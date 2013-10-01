@@ -62,6 +62,7 @@ define(['jquery'], function ($) {
                 position: 'topright'
             }).addTo(this.map);
             cartoLayer = cartodb.createLayer(this.map, 'http://hrw.cartodb.com/api/v2/viz/964ea6f8-ee0d-11e2-a7a6-3085a9a9563c/viz.json');
+            var scale= new L.Control.Scale({imperial:false}).addTo(this.map);
             cartoLayer.on('done', function (layer) {
                 self.cartodbLayer = layer;
                 self.map.addLayer(self.cartodbLayer);

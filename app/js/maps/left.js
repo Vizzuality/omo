@@ -39,7 +39,7 @@ define(['jquery'], function ($) {
 
             this.map = L.map(this.id, this.options);
 
-            
+            var scale= new L.Control.Scale({imperial:false, position:'topleft'}).addTo(this.map);
 
             L.tileLayer('http://com.vizzuality.omo.s3.amazonaws.com/basemaps/before/{z}/{x}/{y}.png', {
                 attribution: 'tODO',
@@ -47,7 +47,7 @@ define(['jquery'], function ($) {
             }).addTo(this.map);
 
             cartoLayer = cartodb.createLayer(this.map, 'http://hrw.cartodb.com/api/v2/viz/ce602812-f9b3-11e2-9967-3085a9a9563c/viz.json');
-
+            
             cartoLayer.on('done', function (layer) {
                 self.map.addLayer(layer);
                 self.cartodbLayer = layer;

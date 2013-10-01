@@ -23,7 +23,9 @@ define(['jquery'], function ($) {
         },
         subscriptions: {
             //'map:zoom': 'setMapZoom',
+            'vis:change': 'setVis',
             'map:setView': 'setMapView'
+            
         },
         initialize: function () {
             this.createMap();
@@ -55,8 +57,8 @@ define(['jquery'], function ($) {
             }).addTo(this.map);
             cartoLayer = cartodb.createLayer(this.map, 'http://hrw.cartodb.com/api/v2/viz/2ea71fd4-0f01-11e3-b690-3085a9a9563c/viz.json');
             cartoLayer.on('done', function (layer) {
-                self.map.addLayer(layer);
                 self.cartodbLayer = layer;
+                self.map.addLayer(self.cartodbLayer);
                 $('.cartodb-logo').css('display', 'none');
             });
             self.map.on('moveend', function (e) {
@@ -70,6 +72,22 @@ define(['jquery'], function ($) {
         },
         setMapView: function (lat, lon, zoom) {
             this.map.setView([lat, lon], zoom);
+        },
+        setVis: function (vis) {
+            var self = this,
+                cartoLayer;
+
+            if (this.map && this.cartodbLayer) {
+                this.cartodbLayer.off('featureClick');
+                this.map.removeLayer(this.cartodbLayer);
+                this.cartodbLayer = null;
+            
+                cartoLayer = cartodb.createLayer(this.map, vis);
+                cartoLayer.on('done', function (layer) {
+                    self.map.addLayer(layer);
+                    self.cartodbLayer = layer;
+                });
+            }
         }
     });
 
