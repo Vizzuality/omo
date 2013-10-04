@@ -92,6 +92,56 @@ ul {padding-left: 20px;}
 .iframe .btn-share {right: 20px; top: 26px;}
 .btn-share:hover {background-position: -106px -33px;}
 
+.btn-actions {position: absolute; margin: 0; padding: 0; top: 20px; right: 45px; z-index: 1005;}
+.iframe .btn-actions {top: 26px; right: 20px;}
+.btn-actions ul {
+    display: none;
+    margin: 0;
+    padding: 0;
+}
+.btn-actions li {display: block; list-style: none; margin: 0; position: relative;}
+.btn-actions li:hover ul {
+    display: block;
+}
+.btn-actions li ul {
+    top: 33px;
+}
+.btn-actions li li a {
+    background-color: white;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    border-radius: 4px;
+    margin-top: 1px;
+}
+.btn-actions a {
+    background: url(../img/assets/sprite.png) no-repeat;
+    display: block;
+    text-indent: -9999px;
+    height: 33px;
+    width: 33px;
+}
+.btn-actions .btn-actions-share {
+    background-position: -105px 0;
+    border-radius: 4px;
+}
+.btn-actions .btn-actions-share:hover {
+    background-position: -105px -33px;
+}
+.btn-actions .btn-actions-facebook {
+    background-position: -172px 0;
+}
+.btn-actions .btn-actions-facebook:hover {
+    background-position: -172px -33px;
+}
+.btn-actions .btn-actions-twitter {
+    background-position: -138px 0;
+}
+.btn-actions .btn-actions-twitter:hover {
+    background-position: -138px -33px;
+}
+
 /* Reveal */
 .reveal {position: relative; z-index: 1001;}
 .iframe .reveal {height: 99.5%; margin-top: .5%;}
@@ -104,7 +154,7 @@ ul {padding-left: 20px;}
 
 .reveal .reveal-article-content {
 /*	font-size: 1.125em;*/
-	opacity: .8;
+	opacity: 1;
 	text-shadow: 1px 1px 1px #555;
     -webkit-transition: opacity .5s ease;
     -moz-transition: opacity .5s ease;
@@ -174,6 +224,20 @@ ul {padding-left: 20px;}
 .date-left {position:absolute;left:0%;bottom:0px;padding-left:2.1em; z-index:9998;}
 .date-right {position:absolute;left:50%;bottom:0px;padding-left:2.1em;  z-index:9998;}
 
+.semi-article {
+    cursor: pointer;
+    padding: 5px !important;
+}
+.semi-article.active, .semi-article:hover {
+    background: rgba(0, 0, 0, .3);
+    -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+    -moz-box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+    -ms-box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+    -o-box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+    box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+}
+
+
 /* CartoDB */
 .cartodb-visualization, .cartodb-splitter {
     height: 100%;
@@ -211,6 +275,7 @@ right: 20px;
     -o-box-shadow: none;
     box-shadow: none;
 }
+.leaflet-bar a {border-bottom: 0;}
 .leaflet-bar-part {border-bottom: 0;}
 .leaflet-container .leaflet-control-zoom {margin-right: 90px; margin-top: 20px;}
 .iframe .leaflet-container .leaflet-control-zoom {margin-right: 65px;}
@@ -227,7 +292,20 @@ right: 20px;
     text-indent: -9999px;
     width: 34px;
 }
-
+.leaflet-bar a, .leaflet-bar a:hover {border-bottom: 0; height: 33px; width: 34px;}
+.leaflet-bar a.leaflet-disabled {background-color: transparent;}
+.leaflet-bar a:first-child {
+    -webkit-border-top-left-radius: 0;
+    border-top-left-radius: 0;
+    -webkit-border-top-right-radius: 0;
+    border-top-right-radius: 0;
+}
+.leaflet-bar a:last-child {
+    -webkit-border-bottom-left-radius: 0;
+    border-bottom-left-radius: 0;
+    -webkit-border-bottom-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
 .leaflet-control-zoom .leaflet-control-zoom-in {background-position: -34px 0;}
 .leaflet-control-zoom .leaflet-control-zoom-in:hover {background-position: -34px -132px; }
 .leaflet-control-zoom .leaflet-control-zoom-out {background-position: 0 0;}
@@ -501,6 +579,20 @@ right: 20px;
 	border-bottom: 1px solid #ddd;
 	border-top: 1px solid #ddd;
 	}
+        
+.leaflet-control-scale-line {
+        border: 0px solid #777;
+        border-top: none;
+        color: #333;
+        line-height: 1.1;
+        padding: 2px 5px 1px;
+        font-size: 10px;
+        text-shadow: 0px 0px 0px #333;
+        background-color: rgba(255, 255, 255, 0.5);
+        box-shadow: 0 0px 0px rgba(0, 0, 0, 0);
+        white-space: nowrap;
+        overflow: hidden;
+}
 
 
 /* Helpers */

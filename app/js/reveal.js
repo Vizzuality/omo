@@ -18,6 +18,8 @@ define(['jquery', 'reveal'], function ($, Reveal) {
             transition: 'linear'
         },
         initialize: function () {
+            var semiArticles = $('.semi-article');
+
             this.bodytag = $('body');
             this.noiframe = window.self === window.top;
             this.reveal = Reveal;
@@ -27,6 +29,13 @@ define(['jquery', 'reveal'], function ($, Reveal) {
             this.createReveal();
             this.checkIframe();
             this.setMapEffects();
+
+            semiArticles.on('mouseover', function(e) {
+                var target = $(e.currentTarget);
+                semiArticles.removeClass('active');
+                target.addClass('active');
+                $('.slide-background.present').css('background-image', 'url(' + target.data('bg') + ')');
+            });
         },
         createReveal: function () {
             var self = this,
