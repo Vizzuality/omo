@@ -3,7 +3,6 @@
 require.config({
     baseUrl: '',
     paths: {
-        domReady: 'vendor/requirejs-domready/domReady',
         jquery: 'vendor/jquery/jquery',
         reveal: 'lib/reveal.js/js/reveal',
         gallery: 'lib/jquery/gallery',
@@ -38,23 +37,18 @@ require.config({
 });
 
 require([
-    'jquery', 'gallery', 'reveal', 'MapView', 'MapLeftView', 'MapRightView', 'RevealView', 'OverlayView', 'PreloadView', 'SplitterView', 'domReady', 'kendo'
-], function ($, gallery, Reveal, MapView, MapLeftView, MapRightView, RevealView, OverlayView, PreloadView, SplitterView, domReady) {
+    'jquery', 'gallery', 'reveal', 'MapView', 'MapLeftView', 'MapRightView', 'RevealView', 'OverlayView', 'PreloadView', 'SplitterView', 'kendo'
+], function ($, gallery, Reveal, MapView, MapLeftView, MapRightView, RevealView, OverlayView, PreloadView, SplitterView) {
     'use strict';
 
     var app = {};
 
-    function initialize() {
+    app.preloadView = new PreloadView();
+    app.revealView = new RevealView();
+    app.splitterView = new SplitterView();
+    app.mapView = new MapView();
+    app.mapLeftView = new MapLeftView();
+    app.mapRightView = new MapRightView();
+    app.overlayView = new OverlayView();
 
-        app.preloadView = new PreloadView();
-        app.revealView = new RevealView();
-        app.splitterView = new SplitterView();
-        app.mapView = new MapView();
-        app.mapLeftView = new MapLeftView();
-        app.mapRightView = new MapRightView();
-        app.overlayView = new OverlayView();
-
-    }
-
-    domReady(initialize);
 });

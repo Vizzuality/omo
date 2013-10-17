@@ -7,7 +7,7 @@
 // http://hrw.cartodb.com/api/v2/viz/b85b30b8-ee1c-11e2-8244-3085a9a9563c/viz.json
 // http://hrw.cartodb.com/api/v2/viz/964ea6f8-ee0d-11e2-a7a6-3085a9a9563c/viz.json
 
-define(['jquery'], function ($) {
+define(['jquery'], function($) {
     'use strict';
 
     var MapView = Backbone.View.extend({
@@ -22,12 +22,10 @@ define(['jquery'], function ($) {
             attributionControl: false
         },
         subscriptions: {
-            //'map:zoom': 'setMapZoom',
             'vis:change': 'setVis',
             'map:setView': 'setMapView'
-            
         },
-        initialize: function () {
+        initialize: function() {
             this.createMap();
             this.$el = $('#' + this.id);
             this.iframe = window.self === window.top;
@@ -35,7 +33,7 @@ define(['jquery'], function ($) {
                 this.$el.addClass('iframe');
             }
         },
-        createMap: function () {
+        createMap: function() {
             var self = this,
                 cartoLayer;
 
@@ -53,37 +51,35 @@ define(['jquery'], function ($) {
             L.tileLayer('http://com.vizzuality.omo.s3.amazonaws.com/basemaps/after/{z}/{x}/{y}.png', {
                 attribution: 'tODO',
                 tms: true
-               
             }).addTo(this.map);
             cartoLayer = cartodb.createLayer(this.map, 'http://hrw.cartodb.com/api/v2/viz/2ea71fd4-0f01-11e3-b690-3085a9a9563c/viz.json');
-            cartoLayer.on('done', function (layer) {
+            cartoLayer.on('done', function(layer) {
                 self.cartodbLayer = layer;
                 self.map.addLayer(self.cartodbLayer);
                 $('.cartodb-logo').css('display', 'none');
             });
-            self.map.on('moveend', function (e) {
+            self.map.on('moveend', function(e) {
                 Backbone.Mediator.publish('map:follow', e.target.getCenter(), e.target.getZoom());
-                //console.log(e.target.getCenter()+'-'+ e.target.getZoom());
             });
-            //self.map.setZoom(16);
         },
-        setMapZoom: function (zoom) {
+        setMapZoom: function(zoom) {
             this.map.setZoom(zoom);
         },
-        setMapView: function (lat, lon, zoom) {
+        setMapView: function(lat, lon, zoom) {
             this.map.setView([lat, lon], zoom);
         },
-        setVis: function (vis) {
+        setVis: function(vis) {
             var self = this,
                 cartoLayer;
 
             if (this.map && this.cartodbLayer) {
+                $('.cartodb-legend-stack').remove();
                 this.cartodbLayer.off('featureClick');
                 this.map.removeLayer(this.cartodbLayer);
                 this.cartodbLayer = null;
-            
+
                 cartoLayer = cartodb.createLayer(this.map, vis);
-                cartoLayer.on('done', function (layer) {
+                cartoLayer.on('done', function(layer) {
                     self.map.addLayer(layer);
                     self.cartodbLayer = layer;
                 });
