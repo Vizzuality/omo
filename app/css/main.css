@@ -326,10 +326,13 @@ right: 20px;
 }
 
 .leaflet-bottom .leaflet-control-scale {
-    margin-bottom: 15px;
+    margin-bottom: 5px;
 }
 .leaflet-left .leaflet-control-scale {
     margin-left: 15px;
+}
+.leaflet-right .leaflet-control-scale {
+    margin-left: 25px;
 }
 
 /* Overlay */
