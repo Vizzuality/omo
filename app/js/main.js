@@ -41,7 +41,7 @@ require([
 ], function ($, gallery, Reveal, MapView, MapLeftView, MapRightView, RevealView, OverlayView, PreloadView, SplitterView) {
     'use strict';
 
-    var app = {};
+    window.app = {};
 
     app.preloadView = new PreloadView();
     app.revealView = new RevealView();

@@ -143,8 +143,13 @@ ul {padding-left: 20px;}
 }
 
 /* Reveal */
-.reveal {position: relative; z-index: 1001;}
-.iframe .reveal {height: 99.5%; margin-top: .5%;}
+.reveal {position: absolute; z-index: 1001;}
+.iframe .reveal {/*height: 99.5%; margin-top: .5%;*/
+    top: 5px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
 .reveal .slides {text-align: left;}
 
 .reveal h2 {font-size: 2.27272727em; font-weight: bold; margin-bottom: 20px;}
@@ -240,17 +245,22 @@ ul {padding-left: 20px;}
 
 /* CartoDB */
 .cartodb-visualization, .cartodb-splitter {
-    height: 100%;
+    bottom: 0;
     left: 0;
     position: absolute;
     top: 0;
-    width: 100%;
+    height: auto;
+    right: 0;
     opacity: 1;
 }
 .cartodb-visualization.iframe,
 .cartodb-splitter.iframe {
-    top: .5%;
-    height: 99.5%;
+    top: 5px;
+}
+
+.reveal .cartodb-visualization.iframe,
+.reveal .cartodb-splitter.iframe {
+    top: 0;
 }
 .cartodb-logo {display: none !important;}
 
@@ -259,8 +269,6 @@ position: absolute;
 bottom: 70px;
 right: 20px;
 }
-
-
 /* Leaflet */
 .leaflet-bar {
     border: 0;
@@ -615,3 +623,8 @@ right: 20px;
 	    -ms-transform-style: flat;
 	        transform-style: flat;
 }
+
+
+/* IE */
+.reveal .leaflet-tile-container img {max-height: none;}
+.reveal div.cartodb-popup {padding: 7px 0 0 0; margin: 0;}

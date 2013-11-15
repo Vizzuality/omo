@@ -1,6 +1,6 @@
 /*global Backbone, window, define */
 
-define(['jquery', 'reveal'], function ($, Reveal) {
+define(['jquery', 'reveal'], function($, Reveal) {
     'use strict';
 
     var RevealView = Backbone.View.extend({
@@ -17,7 +17,7 @@ define(['jquery', 'reveal'], function ($, Reveal) {
             backgroundTransition: 'linear',
             transition: 'linear'
         },
-        initialize: function () {
+        initialize: function() {
             var semiArticles = $('.semi-article');
 
             this.bodytag = $('body');
@@ -37,7 +37,7 @@ define(['jquery', 'reveal'], function ($, Reveal) {
                 $('.slide-background.present').css('background-image', 'url(' + target.data('bg') + ')');
             });
         },
-        createReveal: function () {
+        createReveal: function() {
             var self = this,
                 reveal = this.reveal;
 
@@ -48,6 +48,28 @@ define(['jquery', 'reveal'], function ($, Reveal) {
             function onSlideReady(e) {
                 self.setBtnEvents();
                 self.onRevealChange(e);
+
+                // ON IE Fix
+                function getInternetExplorerVersion() {
+                    var rv = -1; // Return value assumes failure.
+                    if (navigator.appName == 'Microsoft Internet Explorer') {
+                        var ua = navigator.userAgent;
+                        var re = new RegExp('MSIE ([0-9]{1,}[\.0-9]{0,})');
+                        if (re.exec(ua) != null)
+                            rv = parseFloat(RegExp.$1);
+                    }
+                    return rv;
+                }
+
+                function checkVersion() {
+                    var ver = getInternetExplorerVersion();
+                    if (ver > -1 && ver <= 10.0) {
+                        $('.cartodb-visualization').appendTo('#reveal');
+                    }
+                }
+
+                checkVersion();
+
                 setTimeout(function() {
                     Backbone.Mediator.publish('preload:stop');
                 }, 1000);
@@ -57,7 +79,7 @@ define(['jquery', 'reveal'], function ($, Reveal) {
             reveal.addEventListener('slidechanged', onSlideChange);
             reveal.addEventListener('ready', onSlideReady);
         },
-        onRevealChange: function (e) {
+        onRevealChange: function(e) {
             $('.date-left').hide();
             $('.date-right').hide();
             this.current = $(e.currentSlide);
@@ -78,33 +100,33 @@ define(['jquery', 'reveal'], function ($, Reveal) {
             }
 
             switch (this.current.data('state')) {
-            case 'map1':
-                Backbone.Mediator.publish('vis:change', 'http://hrw.cartodb.com/api/v2/viz/964ea6f8-ee0d-11e2-a7a6-3085a9a9563c/viz.json');
-                Backbone.Mediator.publish('map:setView', 5.2037, 23.1106, 4);
-                break;
-            case 'map2':
-                Backbone.Mediator.publish('vis:change', 'http://hrw.cartodb.com/api/v2/viz/b85b30b8-ee1c-11e2-8244-3085a9a9563c/viz.json');
-                Backbone.Mediator.publish('map:setView', 5.2037, 35.8106, 9);
-                break;
-            case 'map3':
-                Backbone.Mediator.publish('vis:change', 'http://hrw.cartodb.com/api/v2/viz/df4bbd86-ee1d-11e2-a56d-3085a9a9563c/viz.json');
-                Backbone.Mediator.publish('map:setView', 5.3837, 35.1, 9);
-                break;
-            case 'splitter1':
-                Backbone.Mediator.publish('map:setView', 6.18783, 35.99507, 13);
-                Backbone.Mediator.publish('vis:change', 'http://hrw.cartodb.com/api/v2/viz/2ea71fd4-0f01-11e3-b690-3085a9a9563c/viz.json');
-                break;
-            case 'splitter2':
-                Backbone.Mediator.publish('map:setView', 6.30165, 36.04897, 13);
-                Backbone.Mediator.publish('vis:change', 'http://hrw.cartodb.com/api/v2/viz/7b5478ba-2a7a-11e3-9771-3085a9a9563c/viz.json');
-                
-                break;
-            case 'splitter3':
-                Backbone.Mediator.publish('map:setView', 6.11628, 35.99192, 14);
-                break;
+                case 'map1':
+                    Backbone.Mediator.publish('vis:change', 'http://hrw.cartodb.com/api/v2/viz/964ea6f8-ee0d-11e2-a7a6-3085a9a9563c/viz.json');
+                    Backbone.Mediator.publish('map:setView', 5.2037, 23.1106, 4);
+                    break;
+                case 'map2':
+                    Backbone.Mediator.publish('vis:change', 'http://hrw.cartodb.com/api/v2/viz/b85b30b8-ee1c-11e2-8244-3085a9a9563c/viz.json');
+                    Backbone.Mediator.publish('map:setView', 5.2037, 35.8106, 9);
+                    break;
+                case 'map3':
+                    Backbone.Mediator.publish('vis:change', 'http://hrw.cartodb.com/api/v2/viz/df4bbd86-ee1d-11e2-a56d-3085a9a9563c/viz.json');
+                    Backbone.Mediator.publish('map:setView', 5.3837, 35.1, 9);
+                    break;
+                case 'splitter1':
+                    Backbone.Mediator.publish('map:setView', 6.18783, 35.99507, 13);
+                    Backbone.Mediator.publish('vis:change', 'http://hrw.cartodb.com/api/v2/viz/2ea71fd4-0f01-11e3-b690-3085a9a9563c/viz.json');
+                    break;
+                case 'splitter2':
+                    Backbone.Mediator.publish('map:setView', 6.30165, 36.04897, 13);
+                    Backbone.Mediator.publish('vis:change', 'http://hrw.cartodb.com/api/v2/viz/7b5478ba-2a7a-11e3-9771-3085a9a9563c/viz.json');
+
+                    break;
+                case 'splitter3':
+                    Backbone.Mediator.publish('map:setView', 6.11628, 35.99192, 14);
+                    break;
             }
         },
-        setBtnEvents: function () {
+        setBtnEvents: function() {
             var self, btn;
 
             self = this;
@@ -119,65 +141,65 @@ define(['jquery', 'reveal'], function ($, Reveal) {
 
             this.$el.find('a').on('click', onClickBtn);
         },
-        setMapEffects: function () {
+        setMapEffects: function() {
             var self;
 
             self = this;
 
-            $('#laketurkana').on('mouseover', function () {
+            $('#laketurkana').on('mouseover', function() {
                 Backbone.Mediator.publish('feature:show', 'laketurkana');
-            }).on('mouseout', function () {
+            }).on('mouseout', function() {
                 Backbone.Mediator.publish('feature:hide', 'laketurkana');
             });
-            
-            $('#nationalparks').on('mouseover', function () {
+
+            $('#nationalparks').on('mouseover', function() {
                 Backbone.Mediator.publish('feature:show', 'nationalparks');
-            }).on('mouseout', function () {
+            }).on('mouseout', function() {
                 Backbone.Mediator.publish('feature:hide', 'nationalparks');
             });
-            
-            $('#ethiopia').on('click', function (e) {
+
+            $('#ethiopia').on('click', function(e) {
                 e.preventDefault();
                 Backbone.Mediator.publish('map:setView', 5.2037, 35.8106, 9);
             });
-        
-            $('#gibe3').on('mouseover', function () {
+
+            $('#gibe3').on('mouseover', function() {
                 //Backbone.Mediator.publish('map:setView', 6.84715651, 37.3019, 7);
                 Backbone.Mediator.publish('feature:show', 'gibe3');
-            }).on('mouseout', function () {
+            }).on('mouseout', function() {
                 Backbone.Mediator.publish('feature:hide', 'gibe3');
             });
-            
-            $('#sugarblocks').on('mouseover', function () {
+
+            $('#sugarblocks').on('mouseover', function() {
                 Backbone.Mediator.publish('feature:show', 'sugarblocks');
-            }).on('mouseout', function () {
+            }).on('mouseout', function() {
                 Backbone.Mediator.publish('feature:hide', 'sugarblocks');
             });
-            
-            $('#privatefarms').on('mouseover', function () {
+
+            $('#privatefarms').on('mouseover', function() {
                 Backbone.Mediator.publish('feature:show', 'privatefarms');
                 Backbone.Mediator.publish('feature:show', 'omonew');
-            }).on('mouseout', function () {
+            }).on('mouseout', function() {
                 Backbone.Mediator.publish('feature:hide', 'privatefarms');
                 Backbone.Mediator.publish('feature:hide', 'omonew');
             });
-            
-            $('#irrigation').on('mouseover', function () {
+
+            $('#irrigation').on('mouseover', function() {
                 Backbone.Mediator.publish('feature:show', 'irrigation');
-            }).on('mouseout', function () {
+            }).on('mouseout', function() {
                 Backbone.Mediator.publish('feature:hide', 'irrigation');
             });
-            
-            $('#factories').on('mouseover', function () {
+
+            $('#factories').on('mouseover', function() {
                 Backbone.Mediator.publish('feature:show', 'factories');
-            }).on('mouseout', function () {
+            }).on('mouseout', function() {
                 Backbone.Mediator.publish('feature:hide', 'factories');
             });
         },
         disableClick: function(e) {
             e.preventDefault();
         },
-        checkIframe: function () {
+        checkIframe: function() {
             if (this.noiframe) {
                 this.fullbtn.hide();
                 this.logo.show();
@@ -187,6 +209,10 @@ define(['jquery', 'reveal'], function ($, Reveal) {
                 this.logo.hide();
                 this.bodytag.removeClass('iframe');
             }
+        },
+
+        onSlideReady: function() {
+
         }
     });
 

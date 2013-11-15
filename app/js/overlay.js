@@ -13,7 +13,6 @@ define([], function () {
         },
         initialize: function () {
             this.content = $('#contentOverlay');
-            
         },
         render: function (data) {
             this.content.html(data);
@@ -24,6 +23,8 @@ define([], function () {
 
             this.render(contentHtml);
             this.$el.fadeIn('fast');
+
+            console.log($(target).html());
 
             $(this.$el.find('.gallery')).gallery();
         },
