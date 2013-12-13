@@ -85,7 +85,7 @@ define(['jquery'], function($) {
                 self.geolayers.laketurkana = new L.GeoJSON(data, {
                     style: lakeStyle
                 });
-                self.map.addLayer(self.geolayers.laketurkana);
+                //self.map.addLayer(self.geolayers.laketurkana);
             });
 
             $.getJSON(self.polygons.nationalparks, function(data) {
@@ -98,7 +98,7 @@ define(['jquery'], function($) {
                 self.geolayers.nationalparks = new L.GeoJSON(data, {
                     style: parkStyle
                 });
-                self.map.addLayer(self.geolayers.nationalparks);
+                //self.map.addLayer(self.geolayers.nationalparks);
             });
             $.getJSON(self.polygons.sugarblocks, function(data) {
                 var sugarStyle = {
@@ -110,7 +110,7 @@ define(['jquery'], function($) {
                 self.geolayers.sugarblocks = new L.GeoJSON(data, {
                     style: sugarStyle
                 });
-                self.map.addLayer(self.geolayers.sugarblocks);
+                //self.map.addLayer(self.geolayers.sugarblocks);
             });
 
             $.getJSON(self.polygons.privatefarms, function(data) {
@@ -124,7 +124,7 @@ define(['jquery'], function($) {
                 self.geolayers.privatefarms = new L.GeoJSON(data, {
                     style: farmStyle
                 });
-                self.map.addLayer(self.geolayers.privatefarms);
+                //self.map.addLayer(self.geolayers.privatefarms);
 
             });
 
@@ -167,7 +167,7 @@ define(['jquery'], function($) {
                 self.geolayers.omonew = new L.GeoJSON(data, {
                     style: farmStyle
                 });
-                self.map.addLayer(self.geolayers.omonew);
+                //self.map.addLayer(self.geolayers.omonew);
 
             });
             $.getJSON(self.polygons.irrigation, function(data) {
@@ -180,7 +180,7 @@ define(['jquery'], function($) {
                 self.geolayers.irrigation = new L.GeoJSON(data, {
                     style: iStyle
                 });
-                self.map.addLayer(self.geolayers.irrigation);
+                //self.map.addLayer(self.geolayers.irrigation);
             });
 
             self.geolayers.gibe3 = L.circle([6.84715651, 37.30191447], 5000, {
@@ -262,6 +262,21 @@ define(['jquery'], function($) {
                     self.cartodbLayer = layer;
                 });
             }
+			if(vis=='http://hrw.cartodb.com/api/v2/viz/b85b30b8-ee1c-11e2-8244-3085a9a9563c/viz.json'){
+				self.map.removeLayer(self.geolayers.laketurkana);
+				self.map.removeLayer(self.geolayers.nationalparks);
+				self.map.removeLayer(self.geolayers.sugarblocks);
+				self.map.removeLayer(self.geolayers.privatefarms);
+				self.map.removeLayer(self.geolayers.omonew);
+				self.map.removeLayer(self.geolayers.irrigation);	
+			}else{
+				self.map.addLayer(self.geolayers.laketurkana);
+				self.map.addLayer(self.geolayers.nationalparks);
+				self.map.addLayer(self.geolayers.sugarblocks);
+				self.map.addLayer(self.geolayers.privatefarms);
+				self.map.addLayer(self.geolayers.omonew);
+				self.map.addLayer(self.geolayers.irrigation);
+			}
         }
     });
 
